@@ -1,0 +1,13 @@
+{
+  "name": "@tools/utils",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts",
+    "./tsconfig.node.json": "./tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10"
+  }
+}

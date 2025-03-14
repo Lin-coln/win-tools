@@ -1,0 +1,17 @@
+{
+  "name": "x",
+  "type": "module",
+  "bin": {
+    "x": "bin/x.ts"
+  },
+  "scripts": {
+    "postinstall": "pnpm link --global ."
+  },
+  "devDependencies": {
+    "@tools/utils": "workspace:*",
+    "@types/node": "^22.13.5",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "typescript": "^5.8.2"
+  }
+}
