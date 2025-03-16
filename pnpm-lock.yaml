@@ -8,7 +8,6 @@ overrides:
   typescript: 5.8.2
   '@types/node': 22.13.10
   '@tools/cli': link:tools/cli
-  x: link:../../../AppData/Local/pnpm/global/5/node_modules/x
 
 importers:
 
@@ -20,9 +19,6 @@ importers:
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
-      x:
-        specifier: link:../../../AppData/Local/pnpm/global/5/node_modules/x
-        version: link:../../../AppData/Local/pnpm/global/5/node_modules/x
 
   packages/x:
     devDependencies:
@@ -59,6 +55,15 @@ importers:
       typescript:
         specifier: 5.8.2
         version: 5.8.2
+
+  tools/scripts:
+    devDependencies:
+      '@tools/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@types/node':
+        specifier: 22.13.10
+        version: 22.13.10
 
   tools/utils:
     devDependencies:
