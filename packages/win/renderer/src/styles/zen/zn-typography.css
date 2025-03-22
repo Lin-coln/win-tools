@@ -1,0 +1,3 @@
+@utility zn-typography-body {
+  @apply font-medium text-[14px] leading-[20px];
+}

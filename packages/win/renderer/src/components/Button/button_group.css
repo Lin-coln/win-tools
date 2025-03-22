@@ -1,0 +1,11 @@
+@reference './utility.css';
+
+.zn\:button-group {
+  @apply rounded-zn-button;
+  @apply zn-internal-button-group-with-variants;
+  & > .zn\:button {
+    @apply rounded-none first:rounded-l-[inherit] last:rounded-r-[inherit];
+
+    @apply zn-stroke-none data-disabled:zn-stroke-none;
+  }
+}

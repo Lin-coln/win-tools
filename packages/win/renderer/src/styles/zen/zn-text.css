@@ -1,0 +1,40 @@
+@theme static {
+  --color-zn-light-text-primary: #000000e4;
+  --color-zn-light-text-secondary: #0000009e;
+  --color-zn-light-text-teriary: #00000072;
+  --color-zn-light-text-disabled: #0000005c;
+
+  --color-zn-dark-text-primary: #ffffffff;
+  --color-zn-dark-text-secondary: #ffffffc5;
+  --color-zn-dark-text-teriary: #ffffff87;
+  --color-zn-dark-text-disabled: #ffffff5d;
+}
+
+@theme {
+  --color-zn-light-text-brand-primary: var(--color-zn-accent-dark-2);
+  --color-zn-light-text-brand-secondary: var(--color-zn-accent-dark-3);
+  --color-zn-light-text-brand-teriary: var(--color-zn-accent-dark-1);
+  --color-zn-light-text-brand-disabled: #0000005c;
+
+  --color-zn-dark-text-brand-primary: var(--color-zn-accent-light-3);
+  --color-zn-dark-text-brand-secondary: var(--color-zn-accent-light-3);
+  --color-zn-dark-text-brand-teriary: var(--color-zn-accent-light-2);
+  --color-zn-dark-text-brand-disabled: #ffffff5d;
+}
+
+@theme {
+  --color-zn-light-text-on-accent-primary: #ffffffff;
+  --color-zn-light-text-on-accent-secondary: #ffffffff;
+  --color-zn-light-text-on-accent-teriary: #ffffffb3;
+  --color-zn-light-text-on-accent-disabled: #ffffffb3;
+
+  --color-zn-dark-text-on-accent-primary: #000000ff;
+  --color-zn-dark-text-on-accent-secondary: #000000ff;
+  --color-zn-dark-text-on-accent-teriary: #00000080;
+  --color-zn-dark-text-on-accent-disabled: #ffffff87;
+}
+
+@utility zn-text-* {
+  @apply light:text-[--value(--color-zn-light-text-*)];
+  @apply dark:text-[--value(--color-zn-dark-text-*)];
+}

@@ -1,0 +1,28 @@
+{
+  "name": "win",
+  "type": "module",
+  "main": "./main/index.ts",
+  "scripts": {
+    "dev:renderer": "cd renderer && vite dev --port=8080",
+    "build:renderer": "cd renderer && vite build --emptyOutDir",
+    "preview": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron .",
+    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron . --INDEX_URL=\\\"http://localhost:8080\\\""
+  },
+  "dependencies": {
+    "electron": "^35.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "@tools/utils": "workspace:*",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "tailwindcss": "^4.0.14",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  }
+}

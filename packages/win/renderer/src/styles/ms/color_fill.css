@@ -1,0 +1,37 @@
+@theme static {
+  /* subtle */
+  --color-light-fill-subtle-transparent: #00000000;
+  --color-light-fill-subtle-secondary: #00000009;
+  --color-light-fill-subtle-tertiary: #00000006;
+  --color-light-fill-subtle-disabled: #00000000;
+  /* accent */
+  --color-light-fill-accent-default: #005fb8ff;
+  --color-light-fill-accent-secondary: #005fb8e6;
+  --color-light-fill-accent-tertiary: #005fb8cc;
+  --color-light-fill-accent-disabled: #00000037;
+  --color-light-fill-accent-selected-text-bg: #0078d4ff;
+}
+
+@theme static {
+  /* subtle */
+  --color-dark-fill-subtle-transparent: #ffffff00;
+  --color-dark-fill-subtle-secondary: #ffffff0f;
+  --color-dark-fill-subtle-tertiary: #ffffff0a;
+  --color-dark-fill-subtle-disabled: #ffffff00;
+  /* accent */
+  --color-dark-fill-accent-default: #60cdffff;
+  --color-dark-fill-accent-secondary: #60cdffe6;
+  --color-dark-fill-accent-tertiary: #60cdffcc;
+  --color-dark-fill-accent-disabled: #ffffff28;
+  --color-dark-fill-accent-selected-text-bg: #0078d4ff;
+}
+
+@utility bg-fill-accent-* {
+  @apply light:bg-[--value(--color-light-fill-accent-*)];
+  @apply dark:bg-[--value(--color-dark-fill-accent-*)];
+}
+
+@utility bg-fill-subtle-* {
+  @apply light:bg-[--value(--color-light-fill-subtle-*)];
+  @apply dark:bg-[--value(--color-dark-fill-subtle-*)];
+}

@@ -1,0 +1,8 @@
+@import "./styles/tailwind.css";
+@import "./styles/zen/index.css";
+@import "./styles/electron.css";
+
+html {
+  @apply zn-text-primary zn-typography-body;
+  @apply zn-surface-solid-default electron:bg-transparent;
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "@tools/utils/tsconfig.node.json",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "jsx": "react-jsx",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  },
+  "exclude": ["../node_modules"]
+}

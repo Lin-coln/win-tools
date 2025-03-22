@@ -1,0 +1,23 @@
+@reference './utility.css';
+
+.zn\:button {
+  @apply zn-typography-body;
+  @apply focus-visible:zn-stroke-focus outline-none;
+  @apply transition-colors;
+  @apply cursor-pointer data-disabled:cursor-default select-none;
+  @apply inline-flex justify-center items-center gap-[8px];
+  @apply rounded-zn-button;
+
+  /* data-size */
+  &[data-size="medium"] {
+    @apply min-w-[120px] h-[32px];
+    @apply px-[12px] py-[6px];
+  }
+  &[data-size="small"] {
+    @apply min-w-[48px] h-[24px];
+    @apply px-[12px] py-[2px];
+  }
+
+  /* data-variant */
+  @apply zn-internal-button-with-variants;
+}

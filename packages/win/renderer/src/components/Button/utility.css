@@ -1,0 +1,45 @@
+@reference '@src/index.css';
+
+@theme static {
+  --radius-zn-button: 4px;
+}
+
+@utility zn-internal-text-with-color {
+  @apply zn-text-primary data-pressed:zn-text-secondary data-disabled:zn-text-disabled;
+  &[data-color="brand"] {
+    @apply zn-text-brand-primary data-pressed:zn-text-brand-secondary data-disabled:zn-text-brand-disabled;
+  }
+}
+
+@utility zn-internal-fill-with-color {
+  &[data-color="brand"] {
+    @apply zn-fill-brand-rest data-hover:zn-fill-brand-hover data-pressed:zn-fill-brand-pressed data-disabled:zn-fill-brand-disabled;
+  }
+}
+
+@utility zn-internal-button-group-with-variants {
+  &[data-variant="standard"] {
+    @apply zn-stroke-ctrl-rest data-disabled:zn-stroke-ctrl-disabled;
+  }
+  &[data-variant="accent"] {
+    @apply zn-stroke-on-accent-rest data-disabled:zn-stroke-on-accent-disabled;
+  }
+}
+
+@utility zn-internal-button-with-variants {
+  &[data-variant="standard"] {
+    @apply zn-fill-ctrl-rest data-hover:zn-fill-ctrl-hover data-pressed:zn-fill-ctrl-pressed data-disabled:zn-fill-ctrl-disabled;
+    @apply zn-internal-text-with-color;
+    @apply zn-stroke-ctrl-rest data-hover:zn-stroke-ctrl-hover data-pressed:zn-stroke-ctrl-pressed data-disabled:zn-stroke-ctrl-disabled;
+  }
+  &[data-variant="subtle"] {
+    @apply zn-fill-subtle-rest data-hover:zn-fill-subtle-hover data-pressed:zn-fill-subtle-pressed data-disabled:zn-fill-subtle-disabled;
+    @apply zn-internal-text-with-color;
+    @apply zn-stroke-none;
+  }
+  &[data-variant="accent"] {
+    @apply zn-internal-fill-with-color;
+    @apply zn-text-on-accent-primary data-hover:zn-text-on-accent-secondary data-pressed:zn-text-on-accent-teriary data-disabled:zn-text-on-accent-disabled;
+    @apply zn-stroke-on-accent-rest data-hover:zn-stroke-on-accent-hover data-pressed:zn-stroke-on-accent-pressed data-disabled:zn-stroke-on-accent-disabled;
+  }
+}

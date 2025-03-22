@@ -1,0 +1,16 @@
+@theme {
+  --color-zn-light-fill-subtle-rest: #00000000;
+  --color-zn-light-fill-subtle-hover: #00000009;
+  --color-zn-light-fill-subtle-pressed: #00000006;
+  --color-zn-light-fill-subtle-disabled: #00000000;
+
+  --color-zn-dark-fill-subtle-rest: #ffffff00;
+  --color-zn-dark-fill-subtle-hover: #ffffff0f;
+  --color-zn-dark-fill-subtle-pressed: #ffffff0a;
+  --color-zn-dark-fill-subtle-disabled: #ffffff00;
+}
+
+@utility zn-fill-subtle-* {
+  @apply light:bg-[--value(--color-zn-light-fill-subtle-*)];
+  @apply dark:bg-[--value(--color-zn-dark-fill-subtle-*)];
+}

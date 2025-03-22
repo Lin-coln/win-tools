@@ -1,0 +1,40 @@
+@theme {
+  --color-zn-light-fill-ctrl-rest: #ffffffb3;
+  --color-zn-light-fill-ctrl-hover: #f9f9f980;
+  --color-zn-light-fill-ctrl-pressed: #f9f9f94d;
+  --color-zn-light-fill-ctrl-disabled: #f9f9f94d;
+  --color-zn-light-fill-ctrl-activated: #ffffffff;
+
+  --color-zn-dark-fill-ctrl-rest: #ffffff0f;
+  --color-zn-dark-fill-ctrl-hover: #ffffff15;
+  --color-zn-dark-fill-ctrl-pressed: #ffffff0b;
+  --color-zn-dark-fill-ctrl-disabled: #ffffff0a;
+  --color-zn-dark-fill-ctrl-activated: #1e1e1eb3;
+}
+
+@theme {
+  --color-zn-light-fill-ctrl-alt-rest: #00000000;
+  --color-zn-light-fill-ctrl-alt-hover: #00000006;
+  --color-zn-light-fill-ctrl-alt-pressed: #0000000f;
+  --color-zn-light-fill-ctrl-alt-disabled: #00000000;
+
+  --color-zn-dark-fill-ctrl-alt-rest: #00000000;
+  --color-zn-dark-fill-ctrl-alt-hover: #00000019;
+  --color-zn-dark-fill-ctrl-alt-pressed: #ffffff0b;
+  --color-zn-dark-fill-ctrl-alt-disabled: #00000000;
+}
+
+@theme {
+  --color-zn-light-fill-ctrl-solid-default: #ffffffff;
+  --color-zn-dark-fill-ctrl-solid-default: #454545ff;
+
+  --color-zn-light-fill-ctrl-strong-default: #00000072;
+  --color-zn-light-fill-ctrl-strong-disabled: #00000051;
+  --color-zn-dark-fill-ctrl-strong-default: #ffffff8b;
+  --color-zn-dark-fill-ctrl-strong-disabled: #ffffff3f;
+}
+
+@utility zn-fill-ctrl-* {
+  @apply light:bg-[--value(--color-zn-light-fill-ctrl-*)];
+  @apply dark:bg-[--value(--color-zn-dark-fill-ctrl-*)];
+}
