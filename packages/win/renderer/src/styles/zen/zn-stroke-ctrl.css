@@ -10,14 +10,22 @@
   @apply inset-ring-1;
 
   @variant light {
-    --tw-inset-ring-shadow:
-      inset 0 -0.6px 1px 0 var(--color-zn-light-stroke-ctrl-secondary),
-      inset 0 0 0 1px --alpha(var(--color-zn-light-stroke-ctrl-default) / 100%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow:
+        inset 0 -0.6px 1px 0 var(--color-zn-light-stroke-ctrl-secondary),
+        inset 0 0 0 1px
+          --alpha(var(--color-zn-light-stroke-ctrl-default) / 100%);
+    }
   }
   @variant dark {
-    --tw-inset-ring-shadow:
-      inset 0 0.6px 0.4px 0 var(--color-zn-dark-stroke-ctrl-default),
-      inset 0 0 0 1px --alpha(var(--color-zn-dark-stroke-ctrl-secondary) / 20%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow:
+        inset 0 0.6px 0.4px 0 var(--color-zn-dark-stroke-ctrl-default),
+        inset 0 0 0 1px
+          --alpha(var(--color-zn-dark-stroke-ctrl-secondary) / 20%);
+    }
   }
 }
 
@@ -29,12 +37,18 @@
   @apply inset-ring-1;
 
   @variant light {
-    --tw-inset-ring-shadow: inset 0 0 0 1px
-      var(--color-zn-light-stroke-ctrl-default);
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px
+        var(--color-zn-light-stroke-ctrl-default);
+    }
   }
   @variant dark {
-    --tw-inset-ring-shadow: inset 0 0 0 1px
-      --alpha(var(--color-zn-dark-stroke-ctrl-default) / 60%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px
+        --alpha(var(--color-zn-dark-stroke-ctrl-default) / 60%);
+    }
   }
 }
 
@@ -47,10 +61,16 @@
 @utility zn-stroke-none {
   @apply inset-ring-1;
   @variant light {
-    --tw-inset-ring-color: transparent;
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px transparent;
+    }
   }
   @variant dark {
-    --tw-inset-ring-color: transparent;
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px transparent;
+    }
   }
 }
 
@@ -68,16 +88,22 @@
   @apply inset-ring-1;
 
   @variant light {
-    --tw-inset-ring-shadow:
-      inset 0 -0.6px 1px 0 var(--color-zn-light-stroke-on-accent-secondary),
-      inset 0 0 0 1px
-        --alpha(var(--color-zn-light-stroke-on-accent-default) / 100%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow:
+        inset 0 -0.6px 1px 0 var(--color-zn-light-stroke-on-accent-secondary),
+        inset 0 0 0 1px
+          --alpha(var(--color-zn-light-stroke-on-accent-default) / 100%);
+    }
   }
   @variant dark {
-    --tw-inset-ring-shadow:
-      inset 0 0.6px 0.4px 0 var(--color-zn-dark-stroke-on-accent-default),
-      inset 0 0 0 1px
-        --alpha(var(--color-zn-dark-stroke-on-accent-secondary) / 20%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow:
+        inset 0 0.6px 0.4px 0 var(--color-zn-dark-stroke-on-accent-default),
+        inset 0 0 0 1px
+          --alpha(var(--color-zn-dark-stroke-on-accent-secondary) / 20%);
+    }
   }
 }
 
@@ -89,12 +115,18 @@
   @apply inset-ring-1;
 
   @variant light {
-    --tw-inset-ring-shadow: inset 0 0 0 1px
-      var(--color-zn-light-stroke-on-accent-default);
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px
+        var(--color-zn-light-stroke-on-accent-default);
+    }
   }
   @variant dark {
-    --tw-inset-ring-shadow: inset 0 0 0 1px
-      --alpha(var(--color-zn-dark-stroke-on-accent-default) / 60%);
+    &,
+    &::after {
+      --tw-inset-ring-shadow: inset 0 0 0 1px
+        --alpha(var(--color-zn-dark-stroke-on-accent-default) / 60%);
+    }
   }
 }
 

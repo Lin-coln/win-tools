@@ -38,7 +38,6 @@ export function ButtonGroup({
           color,
           variant,
           disabled,
-          className: cx(childProps.className, ["zn-stroke-none"]),
           ...childProps,
         });
       })}

@@ -17,15 +17,6 @@
   }
 }
 
-@utility zn-internal-button-group-with-variants {
-  &[data-variant="standard"] {
-    @apply zn-stroke-ctrl-rest data-disabled:zn-stroke-ctrl-disabled;
-  }
-  &[data-variant="accent"] {
-    @apply zn-stroke-on-accent-rest data-disabled:zn-stroke-on-accent-disabled;
-  }
-}
-
 @utility zn-internal-button-with-variants {
   &[data-variant="standard"] {
     @apply zn-fill-ctrl-rest data-hover:zn-fill-ctrl-hover data-pressed:zn-fill-ctrl-pressed data-disabled:zn-fill-ctrl-disabled;
@@ -41,5 +32,27 @@
     @apply zn-internal-fill-with-color;
     @apply zn-text-on-accent-primary data-hover:zn-text-on-accent-secondary data-pressed:zn-text-on-accent-teriary data-disabled:zn-text-on-accent-disabled;
     @apply zn-stroke-on-accent-rest data-hover:zn-stroke-on-accent-hover data-pressed:zn-stroke-on-accent-pressed data-disabled:zn-stroke-on-accent-disabled;
+  }
+}
+
+@utility zn-internal-button-group-with-variants {
+  @apply relative;
+  @apply inset-ring-0;
+
+  &[data-variant="standard"] {
+    @apply zn-stroke-ctrl-rest data-disabled:zn-stroke-ctrl-disabled;
+  }
+  &[data-variant="subtle"] {
+    @apply zn-stroke-none data-disabled:zn-stroke-none;
+  }
+  &[data-variant="accent"] {
+    @apply zn-stroke-on-accent-rest data-disabled:zn-stroke-on-accent-disabled;
+  }
+
+  &::after {
+    content: "";
+    @apply inset-ring-1;
+    @apply absolute block top-0 left-0;
+    @apply w-full h-full rounded-[inherit] pointer-events-none;
   }
 }

@@ -1,6 +1,7 @@
 @theme static {
   --color-zn-light-stroke-focus-outer: #000000e4;
-  --color-zn-light-stroke-focus-inner: #ffffffb3;
+  --color-zn-light-stroke-focus-inner: #ffffffff;
+  /*--color-zn-light-stroke-focus-inner: #ffffffb3;*/
 
   --color-zn-dark-stroke-focus-outer: #ffffffff;
   --color-zn-dark-stroke-focus-inner: #000000b3;
