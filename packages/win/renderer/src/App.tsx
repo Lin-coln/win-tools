@@ -5,12 +5,18 @@ import {
   ButtonToggle,
 } from "@src/components/Button";
 import cx from "clsx";
-import React, { type ReactElement, useEffect, useState } from "react";
+import React, {
+  type ReactElement,
+  type ReactNode,
+  useEffect,
+  useState,
+} from "react";
 
 export default function App() {
+  const [ctrlProps, renderControlPanel] = useControlPanel();
   return (
     <div className="relative app-drag flex flex-col justify-center items-center min-h-screen gap-8 p-16">
-      <ThemeButton />
+      {renderControlPanel()}
 
       <ShowcaseTable
         title="Button"
@@ -31,9 +37,10 @@ export default function App() {
             key={key}
             label="label"
             tabIndex={-1}
-            {...col}
-            {...row}
             className={cx({ "pointer-events-none": key !== 0 })}
+            {...ctrlProps}
+            {...row}
+            {...col}
           />
         )}
       />
@@ -53,6 +60,7 @@ export default function App() {
           <ButtonGroup
             key={key}
             className={cx({ "pointer-events-none": key !== 0 })}
+            {...ctrlProps}
             {...row}
             {...col}
           >
@@ -66,25 +74,34 @@ export default function App() {
   );
 }
 
-function ThemeButton() {
-  const getIsDark = () =>
-    (document.documentElement.getAttribute("data-theme") ?? "light") === "dark";
-  const [isDark, setIsDark] = useState(getIsDark);
+function useControlPanel(): [Pick<ButtonProps, "size">, () => ReactNode] {
+  const getTheme = () =>
+    document.documentElement.getAttribute("data-theme") ?? "light";
+  const [theme, setTheme] = useState(getTheme);
+  const [size, setSize] = useState<ButtonProps["size"]>("medium");
   useEffect(() => {
-    document.documentElement.setAttribute(
-      "data-theme",
-      isDark ? "dark" : "light",
-    );
-  }, [isDark]);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
-  return (
-    <ButtonToggle
-      className="absolute top-4 left-4"
-      label={isDark ? "Dark" : "Light"}
-      value={isDark}
-      onValueChange={setIsDark}
-    />
-  );
+  return [
+    {
+      size,
+    },
+    () => (
+      <ButtonGroup className="absolute! top-4 left-4" size="small">
+        <ButtonToggle
+          label={theme}
+          value={theme === "dark"}
+          onValueChange={(val) => setTheme(val ? "dark" : "light")}
+        />
+        <ButtonToggle
+          label={size}
+          value={size === "small"}
+          onValueChange={(val) => setSize(val ? "small" : "medium")}
+        />
+      </ButtonGroup>
+    ),
+  ];
 }
 
 function ShowcaseTable({

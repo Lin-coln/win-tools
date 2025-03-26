@@ -3,6 +3,7 @@
 .zn\:button-group {
   @apply rounded-zn-button;
   @apply zn-internal-button-group-with-variants;
+  @apply flex flex-row;
 
   & > .zn\:button {
     @apply rounded-none first:rounded-l-[inherit] last:rounded-r-[inherit];

@@ -13,8 +13,9 @@ export function ButtonToggle({
 }: ButtonToggleProps) {
   return (
     <Button
-      variant={value ? "accent" : "standard"}
       {...rest}
+      color={value ? "brand" : "neutral"}
+      variant={value ? "accent" : "standard"}
       onClick={(e) => {
         const valueChangedResult = onValueChange(!value);
         if (isPromiseLike(valueChangedResult)) {

@@ -3,6 +3,7 @@ import { Button, type ButtonProps } from "@src/components/Button/Button.tsx";
 import cx from "clsx";
 import { toDataAttrs } from "@utils/dataAttrs.ts";
 import "./button_group.css";
+import { ButtonToggle } from "@src/components/Button/ButtonToggle.tsx";
 
 export interface ButtonGroupProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "color" | "disabled">,
@@ -29,7 +30,9 @@ export function ButtonGroup({
   return (
     <div className={cx("zn:button-group", className)} {...dataAttrs} {...rest}>
       {React.Children.map(children, (child, i) => {
-        const isBtn = React.isValidElement(child) && child.type === Button;
+        const isBtn =
+          React.isValidElement(child) &&
+          [Button, ButtonToggle].includes(child.type as any);
         if (!isBtn) return child;
 
         const childProps: Partial<ButtonProps> = child.props as any;
