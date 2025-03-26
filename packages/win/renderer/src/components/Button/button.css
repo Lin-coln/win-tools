@@ -1,12 +1,14 @@
 @reference './utility.css';
 
 .zn\:button {
-  @apply zn-typography-body;
-  @apply focus-visible:zn-stroke-focus outline-none;
+  @apply outline-none;
   @apply transition-colors;
   @apply cursor-pointer data-disabled:cursor-default select-none;
   @apply inline-flex justify-center items-center gap-[8px];
+
+  @apply zn-typography-body;
   @apply rounded-zn-button;
+  @apply focus-visible:ring-zn-stroke-focus data-focused:ring-zn-stroke-focus;
 
   /* data-size */
   &[data-size="medium"] {
@@ -19,5 +21,5 @@
   }
 
   /* data-variant */
-  @apply zn-internal-button-with-variants;
+  @apply internal-button-with-variants;
 }

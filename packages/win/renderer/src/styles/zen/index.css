@@ -9,3 +9,20 @@
 @import "./zn-fill-accent.css";
 @import "./zn-stroke-ctrl.css";
 @import "./zn-stroke-focus.css";
+
+/**
+
+zn-typography-*
+
+bg-zn-surface-*
+bg-zn-fill-ctrl-*
+bg-zn-fill-subtle-*
+bg-zn-fill-accent-*
+
+text-zn-text-*
+
+ring-zn-stroke-[ctrl|on-accent]-[rest|hover|pressed|disabled]
+ring-zn-stroke-none
+ring-zn-stroke-focus
+
+ */

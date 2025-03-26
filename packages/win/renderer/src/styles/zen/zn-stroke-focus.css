@@ -4,18 +4,18 @@
   /*--color-zn-light-stroke-focus-inner: #ffffffb3;*/
 
   --color-zn-dark-stroke-focus-outer: #ffffffff;
-  --color-zn-dark-stroke-focus-inner: #000000b3;
+  --color-zn-dark-stroke-focus-inner: #000000ff;
+  /*--color-zn-dark-stroke-focus-inner: #000000b3;*/
 }
 
-@utility zn-stroke-focus {
+@utility ring-zn-stroke-focus {
   @apply ring-offset-[1px] ring-[2px];
-
   @variant light {
-    --tw-ring-color: var(--color-zn-light-stroke-focus-outer);
-    --tw-ring-offset-color: var(--color-zn-light-stroke-focus-inner);
+    @apply ring-(--color-zn-light-stroke-focus-outer);
+    @apply ring-offset-(--color-zn-light-stroke-focus-inner);
   }
   @variant dark {
-    --tw-ring-color: var(--color-zn-dark-stroke-focus-outer);
-    --tw-ring-offset-color: var(--color-zn-dark-stroke-focus-inner);
+    @apply ring-(--color-zn-dark-stroke-focus-outer);
+    @apply ring-offset-(--color-zn-dark-stroke-focus-inner);
   }
 }

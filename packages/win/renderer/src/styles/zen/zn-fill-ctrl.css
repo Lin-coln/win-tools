@@ -34,7 +34,7 @@
   --color-zn-dark-fill-ctrl-strong-disabled: #ffffff3f;
 }
 
-@utility zn-fill-ctrl-* {
+@utility bg-zn-fill-ctrl-* {
   @apply light:bg-[--value(--color-zn-light-fill-ctrl-*)];
   @apply dark:bg-[--value(--color-zn-dark-fill-ctrl-*)];
 }

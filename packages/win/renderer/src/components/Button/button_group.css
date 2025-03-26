@@ -1,12 +1,21 @@
 @reference './utility.css';
 
 .zn\:button-group {
-  @apply rounded-zn-button;
-  @apply zn-internal-button-group-with-variants;
   @apply flex flex-row;
+  @apply rounded-zn-button;
+
+  @apply internal-button-group-with-variants;
+  @apply relative;
+  @apply inset-ring-0;
+  &::after {
+    content: "";
+    @apply inset-ring-1 inset-ring-(--zn-stroke-ctrl-ring);
+    @apply absolute block top-0 left-0;
+    @apply w-full h-full rounded-[inherit] pointer-events-none;
+  }
 
   & > .zn\:button {
     @apply rounded-none first:rounded-l-[inherit] last:rounded-r-[inherit];
-    @apply zn-stroke-none data-disabled:zn-stroke-none;
+    @apply ring-zn-stroke-none data-disabled:ring-zn-stroke-none;
   }
 }

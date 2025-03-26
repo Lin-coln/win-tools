@@ -4,55 +4,48 @@
   --radius-zn-button: 4px;
 }
 
-@utility zn-internal-text-with-color {
-  @apply zn-text-primary data-pressed:zn-text-secondary data-disabled:zn-text-disabled;
+@utility internal-text-with-color {
+  @apply text-zn-text-primary data-pressed:text-zn-text-secondary data-disabled:text-zn-text-disabled;
   &[data-color="brand"] {
-    @apply zn-text-brand-primary data-pressed:zn-text-brand-secondary data-disabled:zn-text-brand-disabled;
+    @apply text-zn-text-brand-primary data-pressed:text-zn-text-brand-secondary data-disabled:text-zn-text-brand-disabled;
   }
 }
 
-@utility zn-internal-fill-with-color {
+@utility internal-fill-with-color {
   &[data-color="brand"] {
-    @apply zn-fill-brand-rest data-hover:zn-fill-brand-hover data-pressed:zn-fill-brand-pressed data-disabled:zn-fill-brand-disabled;
+    @apply bg-zn-fill-brand-rest data-hover:bg-zn-fill-brand-hover data-pressed:bg-zn-fill-brand-pressed data-disabled:bg-zn-fill-brand-disabled;
   }
 }
 
-@utility zn-internal-button-with-variants {
+@utility internal-button-with-variants {
   &[data-variant="standard"] {
-    @apply zn-fill-ctrl-rest data-hover:zn-fill-ctrl-hover data-pressed:zn-fill-ctrl-pressed data-disabled:zn-fill-ctrl-disabled;
-    @apply zn-internal-text-with-color;
-    @apply zn-stroke-ctrl-rest data-hover:zn-stroke-ctrl-hover data-pressed:zn-stroke-ctrl-pressed data-disabled:zn-stroke-ctrl-disabled;
+    @apply bg-zn-fill-ctrl-rest data-hover:bg-zn-fill-ctrl-hover data-pressed:bg-zn-fill-ctrl-pressed data-disabled:bg-zn-fill-ctrl-disabled;
+    @apply ring-zn-stroke-ctrl-rest data-hover:ring-zn-stroke-ctrl-hover data-pressed:ring-zn-stroke-ctrl-pressed data-disabled:ring-zn-stroke-ctrl-disabled;
+
+    @apply internal-text-with-color;
   }
   &[data-variant="subtle"] {
-    @apply zn-fill-subtle-rest data-hover:zn-fill-subtle-hover data-pressed:zn-fill-subtle-pressed data-disabled:zn-fill-subtle-disabled;
-    @apply zn-internal-text-with-color;
-    @apply zn-stroke-none;
+    @apply bg-zn-fill-subtle-rest data-hover:bg-zn-fill-subtle-hover data-pressed:bg-zn-fill-subtle-pressed data-disabled:bg-zn-fill-subtle-disabled;
+    @apply ring-zn-stroke-none;
+
+    @apply internal-text-with-color;
   }
   &[data-variant="accent"] {
-    @apply zn-internal-fill-with-color;
-    @apply zn-text-on-accent-primary data-hover:zn-text-on-accent-secondary data-pressed:zn-text-on-accent-teriary data-disabled:zn-text-on-accent-disabled;
-    @apply zn-stroke-on-accent-rest data-hover:zn-stroke-on-accent-hover data-pressed:zn-stroke-on-accent-pressed data-disabled:zn-stroke-on-accent-disabled;
+    @apply text-zn-text-on-accent-primary data-hover:text-zn-text-on-accent-secondary data-pressed:text-zn-text-on-accent-teriary data-disabled:text-zn-text-on-accent-disabled;
+    @apply ring-zn-stroke-on-accent-rest data-hover:ring-zn-stroke-on-accent-hover data-pressed:ring-zn-stroke-on-accent-pressed data-disabled:ring-zn-stroke-on-accent-disabled;
+
+    @apply internal-fill-with-color;
   }
 }
 
-@utility zn-internal-button-group-with-variants {
-  @apply relative;
-  @apply inset-ring-0;
-
+@utility internal-button-group-with-variants {
   &[data-variant="standard"] {
-    @apply zn-stroke-ctrl-rest data-disabled:zn-stroke-ctrl-disabled;
+    @apply ring-zn-stroke-ctrl-rest data-disabled:ring-zn-stroke-ctrl-disabled;
   }
   &[data-variant="subtle"] {
-    @apply zn-stroke-none data-disabled:zn-stroke-none;
+    @apply ring-zn-stroke-none data-disabled:ring-zn-stroke-none;
   }
   &[data-variant="accent"] {
-    @apply zn-stroke-on-accent-rest data-disabled:zn-stroke-on-accent-disabled;
-  }
-
-  &::after {
-    content: "";
-    @apply inset-ring-1;
-    @apply absolute block top-0 left-0;
-    @apply w-full h-full rounded-[inherit] pointer-events-none;
+    @apply ring-zn-stroke-on-accent-rest data-disabled:ring-zn-stroke-on-accent-disabled;
   }
 }

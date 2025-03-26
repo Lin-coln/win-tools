@@ -10,7 +10,7 @@
   --color-zn-dark-surface-solid-default: #202020ff;
 }
 
-@utility zn-surface-* {
+@utility bg-zn-surface-* {
   @apply light:bg-[--value(--color-zn-light-surface-*)];
   @apply dark:bg-[--value(--color-zn-dark-surface-*)];
 }

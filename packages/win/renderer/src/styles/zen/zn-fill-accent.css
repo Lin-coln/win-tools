@@ -18,7 +18,7 @@
   --color-zn-dark-fill-brand-disabled: #ffffff28;
 }
 
-@utility zn-fill-brand-* {
+@utility bg-zn-fill-brand-* {
   @apply light:bg-[--value(--color-zn-light-fill-brand-*)];
   @apply dark:bg-[--value(--color-zn-dark-fill-brand-*)];
 }

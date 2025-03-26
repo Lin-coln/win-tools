@@ -10,7 +10,7 @@
   --color-zn-dark-text-disabled: #ffffff5d;
 }
 
-@theme {
+@theme static {
   --color-zn-light-text-brand-primary: var(--color-zn-accent-dark-2);
   --color-zn-light-text-brand-secondary: var(--color-zn-accent-dark-3);
   --color-zn-light-text-brand-teriary: var(--color-zn-accent-dark-1);
@@ -22,7 +22,7 @@
   --color-zn-dark-text-brand-disabled: #ffffff5d;
 }
 
-@theme {
+@theme static {
   --color-zn-light-text-on-accent-primary: #ffffffff;
   --color-zn-light-text-on-accent-secondary: #ffffffff;
   --color-zn-light-text-on-accent-teriary: #ffffffb3;
@@ -34,7 +34,7 @@
   --color-zn-dark-text-on-accent-disabled: #ffffff87;
 }
 
-@utility zn-text-* {
+@utility text-zn-text-* {
   @apply light:text-[--value(--color-zn-light-text-*)];
   @apply dark:text-[--value(--color-zn-dark-text-*)];
 }
