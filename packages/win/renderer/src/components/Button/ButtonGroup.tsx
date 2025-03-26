@@ -7,7 +7,7 @@ import { ButtonToggle } from "@src/components/Button/ButtonToggle.tsx";
 
 export interface ButtonGroupProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "color" | "disabled">,
-    Pick<ButtonProps, "variant" | "color" | "disabled" | "size"> {
+    Pick<ButtonProps, "variant" | "color" | "disabled" | "size" | "layout"> {
   // ...
 }
 
@@ -17,6 +17,7 @@ export function ButtonGroup({
   color,
   size = "medium",
   variant = "standard",
+  layout = "default",
   disabled = false,
   ...rest
 }: ButtonGroupProps) {
@@ -39,6 +40,7 @@ export function ButtonGroup({
         return React.cloneElement<ButtonProps>(child as any, {
           size,
           color,
+          layout,
           variant,
           disabled,
           ...childProps,

@@ -4,11 +4,12 @@ import { toDataAttrs } from "@utils/dataAttrs.ts";
 import "./button.css";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label?: string;
+  label?: ReactNode;
   children?: ReactNode;
   disabled?: boolean;
   size?: "small" | "medium";
   color?: "neutral" | "brand";
+  layout?: "default" | "iconOnly";
   variant?: "standard" | "accent" | "subtle";
 }
 
@@ -19,6 +20,7 @@ export const Button = ({
   color,
   size = "medium",
   variant = "standard",
+  layout = "default",
   disabled = false,
   ...rest
 }: ButtonProps) => {
@@ -30,6 +32,7 @@ export const Button = ({
     size,
     color,
     variant,
+    layout,
     disabled,
     hover: !disabled && _hover,
     pressed: !disabled && _pressed,
@@ -39,6 +42,7 @@ export const Button = ({
       className={cx("zn:button", className)}
       {...dataAttrs}
       tabIndex={disabled ? -1 : undefined}
+      disabled={disabled}
       {...rest}
       onMouseEnter={(e) => {
         setHover(true);
@@ -56,13 +60,6 @@ export const Button = ({
       onMouseUp={(e) => {
         setPressed(false);
         return rest.onMouseUp?.(e);
-      }}
-      onClick={(e) => {
-        if (disabled) {
-          e.preventDefault();
-          return;
-        }
-        return rest.onClick?.(e);
       }}
     >
       {children ?? label}

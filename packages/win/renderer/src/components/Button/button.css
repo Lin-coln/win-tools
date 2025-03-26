@@ -10,16 +10,28 @@
   @apply rounded-zn-button;
   @apply focus-visible:ring-zn-stroke-focus data-focused:ring-zn-stroke-focus;
 
-  /* data-size */
-  &[data-size="medium"] {
-    @apply min-w-[120px] h-[32px];
-    @apply px-[12px] py-[6px];
-  }
-  &[data-size="small"] {
-    @apply min-w-[48px] h-[24px];
-    @apply px-[12px] py-[2px];
-  }
-
   /* data-variant */
   @apply internal-button-with-variants;
+
+  &[data-layout="default"] {
+    &[data-size="medium"] {
+      @apply min-w-[120px] h-[32px];
+      @apply px-[12px] py-[6px];
+    }
+    &[data-size="small"] {
+      @apply min-w-[48px] h-[24px];
+      @apply px-[12px] py-[2px];
+    }
+  }
+
+  &[data-layout="iconOnly"] {
+    &[data-size="medium"] {
+      @apply w-[32px] h-[32px];
+      @apply p-[6px];
+    }
+    &[data-size="small"] {
+      @apply w-[24px] h-[24px];
+      @apply p-[4px];
+    }
+  }
 }
