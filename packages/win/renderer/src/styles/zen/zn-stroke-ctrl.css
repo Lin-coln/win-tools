@@ -71,11 +71,6 @@
 @utility ring-zn-stroke-on-accent-pressed {
   @variant light {
     --zn-stroke-ctrl-ring: var(--color-zn-light-stroke-on-accent-default);
-    &,
-    &::after {
-      --tw-inset-ring-shadow: inset 0 0 0 1px
-        var(--color-zn-light-stroke-on-accent-default);
-    }
   }
   @variant dark {
     --zn-stroke-ctrl-ring: --alpha(
