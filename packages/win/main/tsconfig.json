@@ -1,6 +1,3 @@
 {
-  "references": [
-    { "path": "./tsconfig.main.json" },
-    { "path": "./tsconfig.preload.json" }
-  ]
+  "extends": "@tools/utils/tsconfig.bun.json"
 }
