@@ -1,22 +1,18 @@
 {
   "name": "win-tools",
+  "private": true,
+  "repository": "https://github.com/Lin-coln/zen.git",
   "author": "lin-coln",
   "type": "module",
-  "packageManager": "pnpm@10.6.3",
-  "engines": {
-    "node": ">=23.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "tsup": "8.4.0",
-      "esbuild": "0.25.1",
-      "typescript": "5.8.2",
-      "@types/node": "22.13.10",
-      "@tools/cli": "link:tools/cli"
-    }
-  },
+  "workspaces": [
+    "tools/*",
+    "packages/*"
+  ],
   "dependencies": {
-    "@tools/cli": "link:tools/cli",
-    "prettier": "^3.5.3"
+    "@tools/cli": "workspace:*",
+    "@types/bun": "latest",
+    "prettier": "^3.5.3",
+    "prettier-plugin-packagejson": "^2.5.10",
+    "typescript": "^5.8.2"
   }
 }

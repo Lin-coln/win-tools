@@ -1,5 +1,5 @@
 {
-  "extends": "@tools/utils/tsconfig.node.json",
+  "extends": "@tools/utils/tsconfig.bun.json",
   "compilerOptions": {
     "noUnusedLocals": false,
     "noUnusedParameters": false,

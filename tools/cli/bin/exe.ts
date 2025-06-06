@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
+
 import { Command } from "commander";
 
 const cli = new Command();
@@ -11,7 +12,7 @@ void cli.parseAsync(process.argv, {
   from: "node",
 });
 
-import foobar from "../src/commands/foobar.ts";
+import foobar from "../src/commands/foobar";
 
 function getCommands(): Command[] {
   return [foobar];

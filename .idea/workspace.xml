@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8e660642-161b-47d6-911f-206db572f7f4" name="Changes" comment="chore: pnpm-lock">
+      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.browser.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.bun.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/win-tools.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/main/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/x/bin/x.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/x/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/x/src/commands/foobar.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/x/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/cli/bin/exe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/bin/exe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/cli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/cli/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/scripts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/scripts/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/scripts/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/scripts/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/utils/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/utils/src/useCleanup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/utils/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/utils/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/utils/tsconfig.node.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Lin-coln&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Lin-coln/win-tools.git&quot;,
+    &quot;accountId&quot;: &quot;fb6c7ad3-f4cb-47c7-bd0f-a91b8a63c655&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2uO4g5JfrLx7WGcuTiy7xLlLh9Y" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.scripts > index.ts.executor": "Run",
+    "Node.js.win > attr-data.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/LinColn/Desktop/WorkSpaces/win-tools/tools",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.postinstall.executor": "Run",
+    "npm.win > build:renderer.executor": "Run",
+    "npm.win > dev (1).executor": "Run",
+    "npm.win > dev.executor": "Run",
+    "npm.win > dev:main (1).executor": "Run",
+    "npm.win > dev:main (2).executor": "Run",
+    "npm.win > dev:main.executor": "Run",
+    "npm.win > dev:renderer (1).executor": "Run",
+    "npm.win > dev:renderer.executor": "Run",
+    "npm.win > postinstall.executor": "Run",
+    "npm.win > preview.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\tools" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\ms" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\components\Button" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.win &gt; preview">
+    <configuration name="postinstall" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/node_modules/electron/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="postinstall" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="win &gt; build:renderer" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:renderer" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="win &gt; dev:main (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev:main" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="win &gt; dev:renderer" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev:renderer" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="win &gt; preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="preview" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.win &gt; preview" />
+        <item itemvalue="npm.win &gt; build:renderer" />
+        <item itemvalue="npm.postinstall" />
+        <item itemvalue="npm.win &gt; dev:main (2)" />
+        <item itemvalue="npm.win &gt; dev:renderer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8e660642-161b-47d6-911f-206db572f7f4" name="Changes" comment="" />
+      <created>1742106395385</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742106395385</updated>
+      <workItem from="1742106396710" duration="2349000" />
+      <workItem from="1742126436598" duration="755000" />
+      <workItem from="1742142206053" duration="1300000" />
+      <workItem from="1742152066420" duration="4864000" />
+      <workItem from="1742229941528" duration="6018000" />
+      <workItem from="1742386826690" duration="26888000" />
+      <workItem from="1742580748177" duration="33095000" />
+      <workItem from="1742745431599" duration="5929000" />
+      <workItem from="1742992839092" duration="108000" />
+      <workItem from="1742992951900" duration="11170000" />
+      <workItem from="1743234053671" duration="329000" />
+      <workItem from="1743259445600" duration="8343000" />
+      <workItem from="1743291505450" duration="2685000" />
+      <workItem from="1743322892559" duration="1372000" />
+      <workItem from="1749216273103" duration="2109000" />
+    </task>
+    <task id="LOCAL-00001" summary="chore: add tools/scripts">
+      <option name="closed" value="true" />
+      <created>1742127447930</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742127447930</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: add zen components - button">
+      <option name="closed" value="true" />
+      <created>1742642434208</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642434208</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: add zen components - button group">
+      <option name="closed" value="true" />
+      <created>1742748446644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742748446644</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: ctrl panel">
+      <option name="closed" value="true" />
+      <created>1742995724860</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742995724860</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: improve css">
+      <option name="closed" value="true" />
+      <created>1743000378596</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743000378596</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: improve css">
+      <option name="closed" value="true" />
+      <created>1743000439257</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743000439257</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: iconOnly">
+      <option name="closed" value="true" />
+      <created>1743005747075</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743005747075</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: remove components">
+      <option name="closed" value="true" />
+      <created>1743295292397</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743295292397</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: pnpm-lock">
+      <option name="closed" value="true" />
+      <created>1743323079478</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743323079478</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: add tools/scripts" />
+    <MESSAGE value="chore: add zen components - button" />
+    <MESSAGE value="chore: add zen components - button group" />
+    <MESSAGE value="feat: ctrl panel" />
+    <MESSAGE value="feat: improve css" />
+    <MESSAGE value="feat: iconOnly" />
+    <MESSAGE value="feat: remove components" />
+    <MESSAGE value="chore: pnpm-lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: pnpm-lock" />
+  </component>
+</project>

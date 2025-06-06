@@ -1,5 +1,5 @@
 import { app, BrowserWindow, nativeTheme } from "electron";
-import path from "path";
+import path from "node:path";
 import * as url from "node:url";
 
 let mainWindow: BrowserWindow;
@@ -66,7 +66,7 @@ async function createMainWindow() {
         .filter((x) => x.startsWith("--"))
         .map((x) => {
           const [k, v] = x.split("=");
-          return [k.slice(2), JSON.parse(v)];
+          return [k!.slice(2), v ? JSON.parse(v) : true];
         }),
     );
   console.log({ APP_ARGS });

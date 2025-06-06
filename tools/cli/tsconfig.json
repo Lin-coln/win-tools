@@ -1,10 +1,5 @@
 {
-  "extends": "@tools/utils/tsconfig.node.json",
-  "compilerOptions": {
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitAny": false
-  },
+  "extends": "@tools/utils/tsconfig.bun.json",
   "include": ["src", "bin"],
   "exclude": ["node_modules"]
 }

@@ -5,8 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/win/dist-renderer" />
       <excludeFolder url="file://$MODULE_DIR$/packages/win/renderer/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/win/dist-renderer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -3,26 +3,24 @@
   "type": "module",
   "main": "./main/index.ts",
   "scripts": {
-    "dev:renderer": "cd renderer && vite dev --port=8080",
-    "build:renderer": "cd renderer && vite build --emptyOutDir",
-    "preview": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron .",
-    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron . --INDEX_URL=\\\"http://localhost:8080\\\""
+    "build:renderer": "cd renderer && bunx --bun vite build --emptyOutDir",
+    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron . --INDEX_URL=\\\"http://localhost:8080\\\"",
+    "dev:renderer": "cd renderer && bunx --bun vite dev --port=8080",
+    "preview": "set NODE_OPTIONS=\"--experimental-strip-types\" && bunx --bun electron ."
   },
   "dependencies": {
-    "electron": "^35.0.2",
+    "clsx": "^2.1.1",
+    "electron": "^36.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "clsx": "^2.1.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.14",
     "@tools/utils": "workspace:*",
-    "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react-swc": "^3.8.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "tailwindcss": "^4.0.14",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.2"
+    "vite": "^6.3.5"
   }
 }
