@@ -1,6 +1,8 @@
 import { app, BrowserWindow, nativeTheme } from "electron";
 import path from "node:path";
-import * as url from "node:url";
+import url from "node:url";
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 let mainWindow: BrowserWindow;
 
@@ -43,6 +45,7 @@ async function createMainWindow() {
       // webSecurity: !isDev,
       // devTools: isDev || isTest,
       spellcheck: false,
+      preload: path.join(__dirname, "../dist-preload/index.js"),
     },
     width: 1200,
     height: 900,
@@ -73,7 +76,6 @@ async function createMainWindow() {
   if (APP_ARGS.INDEX_URL) {
     await mainWindow.loadURL(APP_ARGS.INDEX_URL as string);
   } else {
-    const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
     const INDEX_FILENAME = path.resolve(
       __dirname,
       "../dist-renderer/index.html",

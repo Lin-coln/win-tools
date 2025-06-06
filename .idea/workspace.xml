@@ -4,42 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e660642-161b-47d6-911f-206db572f7f4" name="Changes" comment="chore: pnpm-lock">
-      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.browser.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.bun.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/utils/tsconfig.common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/win-tools.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="8e660642-161b-47d6-911f-206db572f7f4" name="Changes" comment="feat: preload script">
+      <change afterPath="$PROJECT_DIR$/packages/win/main/preload.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/win/main/scripts/buildPreload.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/win/main/tsconfig.main.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/win/main/tsconfig.preload.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/win-tools.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/win-tools.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/win/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/win/main/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/win/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/renderer/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/renderer/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/x/bin/x.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/x/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/x/src/commands/foobar.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/x/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/cli/bin/exe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/bin/exe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/cli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/cli/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/cli/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/scripts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/scripts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/scripts/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/scripts/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/utils/src/useCleanup.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/utils/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/utils/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/utils/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/styles/electron.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/src/styles/tailwind.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -94,7 +73,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/LinColn/Desktop/WorkSpaces/win-tools/tools",
+    "last_opened_file_path": "C:/Users/LinColn/Desktop/WorkSpaces/win-tools/packages/win/main",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,6 +81,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "npm.postinstall.executor": "Run",
+    "npm.win > build:preload.executor": "Run",
     "npm.win > build:renderer.executor": "Run",
     "npm.win > dev (1).executor": "Run",
     "npm.win > dev.executor": "Run",
@@ -120,11 +100,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\main" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\tools" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\ms" />
-      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
@@ -133,12 +113,12 @@
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.win &gt; preview">
-    <configuration name="postinstall" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/node_modules/electron/package.json" />
+  <component name="RunManager" selected="npm.win &gt; dev:main (2)">
+    <configuration name="win &gt; build:preload" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
       <command value="run" />
       <scripts>
-        <script value="postinstall" />
+        <script value="build:preload" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -186,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.win &gt; dev:main (2)" />
+        <item itemvalue="npm.win &gt; build:preload" />
+        <item itemvalue="npm.win &gt; dev:renderer" />
         <item itemvalue="npm.win &gt; preview" />
         <item itemvalue="npm.win &gt; build:renderer" />
-        <item itemvalue="npm.postinstall" />
-        <item itemvalue="npm.win &gt; dev:main (2)" />
-        <item itemvalue="npm.win &gt; dev:renderer" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +203,7 @@
       <workItem from="1743259445600" duration="8343000" />
       <workItem from="1743291505450" duration="2685000" />
       <workItem from="1743322892559" duration="1372000" />
-      <workItem from="1749216273103" duration="2109000" />
+      <workItem from="1749216273103" duration="5572000" />
     </task>
     <task id="LOCAL-00001" summary="chore: add tools/scripts">
       <option name="closed" value="true" />
@@ -297,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743323079478</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="chore: use bun">
+      <option name="closed" value="true" />
+      <created>1749219061011</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749219061011</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +311,8 @@
     <MESSAGE value="feat: iconOnly" />
     <MESSAGE value="feat: remove components" />
     <MESSAGE value="chore: pnpm-lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: pnpm-lock" />
+    <MESSAGE value="chore: use bun" />
+    <MESSAGE value="feat: preload script" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: preload script" />
   </component>
 </project>

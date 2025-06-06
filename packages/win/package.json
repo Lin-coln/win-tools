@@ -4,7 +4,8 @@
   "main": "./main/index.ts",
   "scripts": {
     "build:renderer": "cd renderer && bunx --bun vite build --emptyOutDir",
-    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && electron . --INDEX_URL=\\\"http://localhost:8080\\\"",
+    "build:preload": "cd main && bun ./scripts/buildPreload.ts",
+    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && bunx --bun electron . --INDEX_URL=\\\"http://localhost:8080\\\"",
     "dev:renderer": "cd renderer && bunx --bun vite dev --port=8080",
     "preview": "set NODE_OPTIONS=\"--experimental-strip-types\" && bunx --bun electron ."
   },

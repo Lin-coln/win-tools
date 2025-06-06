@@ -1,0 +1,4 @@
+{
+  "extends": "@tools/utils/tsconfig.browser.json",
+  "include": ["./preload.ts"]
+}

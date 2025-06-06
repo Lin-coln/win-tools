@@ -1,6 +1,1 @@
 @import "./styles/tailwind.css";
-@import "./styles/electron.css";
-
-html {
-  @apply electron:bg-transparent;
-}

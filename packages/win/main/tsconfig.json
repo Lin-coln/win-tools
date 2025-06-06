@@ -1,9 +1,6 @@
 {
-  "extends": "@tools/utils/tsconfig.bun.json",
-  "compilerOptions": {
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitAny": false
-  },
-  "exclude": ["../node_modules"]
+  "references": [
+    { "path": "./tsconfig.main.json" },
+    { "path": "./tsconfig.preload.json" }
+  ]
 }
