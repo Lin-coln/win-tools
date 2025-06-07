@@ -5,14 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e660642-161b-47d6-911f-206db572f7f4" name="Changes" comment="feat: preload script">
-      <change afterPath="$PROJECT_DIR$/packages/win/preload/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/Connection.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/__Connection.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/a.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/b.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/client/NodeClient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/client/connect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/client/disconnect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/client/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/client/write.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/NodeServer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/close.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/disconnect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/listen.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/server/write.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/PromiseHub.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/QueueHub.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/fixPipeName.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/useCleanup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/ipc/utils/uuid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/win/main/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/win/main/windows/createMainWindow.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/main/preload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/main/scripts/buildPreload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/scripts/buildPreload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/main/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/main/tsconfig.main.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/tsconfig.bun.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/main/tsconfig.preload.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/tsconfig.preload.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/win/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/preload/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/preload/tsconfig.preload.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/preload/tsconfig.preload.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/win/renderer/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/win/renderer/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +56,7 @@
       <list>
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="tsconfig.json" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -48,6 +76,9 @@
     &quot;accountId&quot;: &quot;fb6c7ad3-f4cb-47c7-bd0f-a91b8a63c655&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -59,70 +90,70 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.scripts > index.ts.executor": "Run",
-    "Node.js.win > attr-data.ts.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/LinColn/Desktop/WorkSpaces/win-tools/packages/win/preload",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "npm.postinstall.executor": "Run",
-    "npm.win > build:preload.executor": "Run",
-    "npm.win > build:renderer.executor": "Run",
-    "npm.win > dev (1).executor": "Run",
-    "npm.win > dev.executor": "Run",
-    "npm.win > dev:main (1).executor": "Run",
-    "npm.win > dev:main (2).executor": "Run",
-    "npm.win > dev:main.executor": "Run",
-    "npm.win > dev:renderer (1).executor": "Run",
-    "npm.win > dev:renderer.executor": "Run",
-    "npm.win > postinstall.executor": "Run",
-    "npm.win > preview.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.a.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.ipc &gt; a.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.ipc &gt; b.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.scripts &gt; index.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.win &gt; attr-data.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LinColn/Desktop/WorkSpaces/win-tools/packages/ipc&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.postinstall.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; build:preload.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; build:renderer.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev:main (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev:main (2).executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev:main.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev:renderer (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; dev:renderer.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; postinstall.executor&quot;: &quot;Run&quot;,
+    &quot;npm.win &gt; preview.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\LinColn\\Desktop\\WorkSpaces\\win-tools\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\ipc" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\preload" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\main" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\tools" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools" />
-      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\ipc\server" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\ipc\utils" />
+      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\ipc\servser" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\styles\zen" />
       <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src\components\Button" />
-      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer\src" />
-      <recent name="C:\Users\LinColn\Desktop\WorkSpaces\win-tools\packages\win\renderer" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.win &gt; preview">
+  <component name="RunManager" selected="Node.js.a.ts">
+    <configuration name="a.ts" type="NodeJSConfigurationType" singleton="false" temporary="true" nameIsGenerated="true" path-to-js-file="a.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$/packages/ipc">
+      <method v="2" />
+    </configuration>
+    <configuration name="ipc &gt; b.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/packages/ipc/b.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$/packages/ipc">
+      <method v="2" />
+    </configuration>
     <configuration name="win &gt; build:preload" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/win/package.json" />
       <command value="run" />
       <scripts>
         <script value="build:preload" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="win &gt; build:renderer" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build:renderer" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -138,16 +169,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="win &gt; dev:renderer" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/win/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev:renderer" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="win &gt; preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/win/package.json" />
       <command value="run" />
@@ -158,13 +179,20 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Node.js.a.ts" />
+      <item itemvalue="Node.js.ipc &gt; b.ts" />
+      <item itemvalue="npm.win &gt; build:preload" />
+      <item itemvalue="npm.win &gt; dev:main (2)" />
+      <item itemvalue="npm.win &gt; preview" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.win &gt; preview" />
-        <item itemvalue="npm.win &gt; build:preload" />
-        <item itemvalue="npm.win &gt; build:renderer" />
+        <item itemvalue="Node.js.a.ts" />
+        <item itemvalue="Node.js.ipc &gt; b.ts" />
         <item itemvalue="npm.win &gt; dev:main (2)" />
-        <item itemvalue="npm.win &gt; dev:renderer" />
+        <item itemvalue="npm.win &gt; build:preload" />
+        <item itemvalue="npm.win &gt; preview" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +225,7 @@
       <workItem from="1743259445600" duration="8343000" />
       <workItem from="1743291505450" duration="2685000" />
       <workItem from="1743322892559" duration="1372000" />
-      <workItem from="1749216273103" duration="6174000" />
+      <workItem from="1749216273103" duration="26228000" />
     </task>
     <task id="LOCAL-00001" summary="chore: add tools/scripts">
       <option name="closed" value="true" />
@@ -287,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749221949722</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: preload script">
+      <option name="closed" value="true" />
+      <created>1749222624757</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222624757</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

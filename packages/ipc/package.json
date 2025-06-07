@@ -1,0 +1,7 @@
+{
+  "name": "ipc",
+  "type": "module",
+  "devDependencies": {
+    "@tools/utils": "workspace:*"
+  }
+}
