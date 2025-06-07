@@ -1,4 +1,4 @@
 {
   "extends": "@tools/utils/tsconfig.browser.json",
-  "include": ["./index.ts"]
+  "exclude": ["scripts"]
 }

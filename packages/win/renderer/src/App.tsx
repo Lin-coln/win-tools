@@ -9,7 +9,7 @@ import React, {
 export default function App() {
   // const [ctrl, renderControlPanel] = useControlPanel();
   return (
-    <div className="relative app-drag flex flex-col justify-center items-center min-h-screen gap-8 p-16">
+    <div className="relative app-drag flex flex-col justify-center items-center min-h-screen gap-8 p-16 ">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae
       dolores iste libero maiores neque nihil quas! Animi culpa eaque explicabo
       facilis laboriosam, libero modi, mollitia omnis porro quasi, rerum.

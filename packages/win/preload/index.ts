@@ -45,9 +45,7 @@ function injectDefaultCSS() {
   function genCssContent() {
     return `
     /* electron */
-    
     body {
-      background: transparent;
       -webkit-app-region: drag;
       & > * {
         -webkit-app-region: no-drag;
