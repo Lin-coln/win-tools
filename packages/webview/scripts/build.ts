@@ -17,8 +17,10 @@ await Bun.build({
 });
 
 // build - main
+const platform = process.platform;
 const env = "./main/.env";
-const exe = `${dist}/run.exe`;
+const ext = platform === "darwin" ? ".app" : ".exe";
+const filename = `${dist}/run${ext}`;
 Bun.spawnSync(
   [
     "bun",
@@ -34,7 +36,7 @@ Bun.spawnSync(
     "--minify",
     "--sourcemap",
     "--compile",
-    `--outfile=${exe}`,
+    `--outfile=${filename}`,
     // todo .env
     // `--env-file=${env}`,
   ],
@@ -43,3 +45,4 @@ Bun.spawnSync(
 
 // edit - executable file
 // hideCommand(exe);
+// sign
