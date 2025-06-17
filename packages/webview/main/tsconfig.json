@@ -1,3 +1,4 @@
 {
-  "extends": "@tools/utils/tsconfig.bun.json"
+  "extends": "@tools/utils/tsconfig.bun.json",
+  "exclude": ["view"]
 }

@@ -1,7 +1,7 @@
 {
   "references": [
     { "path": "./scripts/tsconfig.json" },
-    { "path": "./src/tsconfig.json" },
-    { "path": "./worker/tsconfig.json" }
+    { "path": "./view/tsconfig.json" },
+    { "path": "./main/tsconfig.json" }
   ]
 }

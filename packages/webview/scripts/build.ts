@@ -6,9 +6,8 @@ const dist = "./dist";
 await fs.promises.rm(dist, { recursive: true, force: true });
 
 // build - view
-const view = `${dist}/view`;
 await Bun.build({
-  outdir: view,
+  outdir: dist,
   entrypoints: [`./view/index.html`],
   target: "browser",
   format: "esm",
@@ -24,7 +23,14 @@ Bun.spawnSync(
   [
     "bun",
     "build",
-    ...["./main/run.ts", "./main/worker.ts"],
+
+    ...[
+      // entries
+      "./main/run.ts",
+      "./main/workers/window.ts",
+      // "./main/worker.ts",
+      // "./main/workers/server.ts",
+    ],
     "--minify",
     "--sourcemap",
     "--compile",

@@ -2,7 +2,7 @@
   "name": "webview",
   "type": "module",
   "scripts": {
-    "build": "bun run scripts/build.ts",
+    "build": "bun run ./scripts/build.ts",
     "dev": "bun run ./main/run.ts"
   },
   "devDependencies": {

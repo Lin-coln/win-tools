@@ -1,80 +1,103 @@
-import { Webview } from "webview-bun";
-import { APP_PACKAGED, APP_PATH, PORT } from "./constants.ts";
+import { getAppPath, getWorkerPath } from "./utils/constants.ts";
+import { createIpc } from "./utils/worker.ts";
 
-interface Config {
-  name: string;
-  url: string;
-}
+// const server = Bun.serve({
+//   routes: {
+//     "/": index,
+//   },
+//   port: 3001,
+//   development: process.env.NODE_ENV !== "production" && {
+//     hmr: true,
+//     console: true,
+//   },
+// });
 
-class App {
-  config!: Config;
-  webview!: Webview;
-  worker!: Worker;
+// try {
+//   console.log(Bun.embeddedFiles);
+//
+//   const env = Object.fromEntries(
+//     Object.entries({
+//       PORT,
+//       APP_PATH,
+//       APP_PACKAGED,
+//     }).map((x) => [x[0], JSON.stringify(x[1])]),
+//   );
+//
+//   // const server = new Worker(getWorkerPath("./workers/server.ts"), { env });
+//
+//   const url = getWorkerPath("./workers/window.ts");
+//   console.log(url);
+//   const window = new Worker(getWorkerPath("./workers/window.ts"), { env });
+//   await new Promise((resolve) => setTimeout(resolve, 10_000));
+// } catch (e) {
+//   console.log(e);
+//   await new Promise((resolve) => setTimeout(resolve, 10_000));
+// }
 
-  constructor(config: Config) {
-    this.config = config;
+await main();
+async function main() {
+  try {
+    await initialize();
+    await createWindow();
 
-    let _launchPromise: Promise<void> | null = null;
-    const _launch = this.launch.bind(this);
-    this.launch = () => {
-      if (!_launchPromise) _launchPromise = _launch();
-      return _launchPromise;
-    };
-
-    let _quitPromise: Promise<void> | null = null;
-    const _quit = this.quit.bind(this);
-    this.quit = () => {
-      if (!_quitPromise) _quitPromise = _quit();
-      return _quitPromise;
-    };
+    await wait(100_000);
+  } catch (e) {
+    console.error(e);
+    await wait(10_000);
   }
 
-  protected async onInitialize() {
-    const worker = new Worker(
-      APP_PACKAGED ? "./worker.ts" : "./main/worker.ts",
-      {
-        env: Object.fromEntries(
-          Object.entries({
-            PORT,
-            APP_PATH,
-            APP_PACKAGED,
-          }).map((x) => [x[0], JSON.stringify(x[1])]),
-        ),
+  async function wait(duration: number) {
+    await new Promise((resolve) => setTimeout(resolve, duration));
+  }
+}
+
+async function initialize() {
+  console.log("embeddedFiles", Bun.embeddedFiles);
+  console.log("import.meta", import.meta);
+
+  /**
+   * extract libwebview.dll
+   */
+  const blob = (Bun.embeddedFiles as (Blob & { name: string })[]).find((x) =>
+    x.name.startsWith("libwebview"),
+  )!;
+  const filename = getAppPath(`./${blob.name}`);
+  const file = Bun.file(filename);
+  if (!(await file.exists())) {
+    await file.write(await blob.arrayBuffer());
+  }
+  import.meta.env.WEBVIEW_PATH = filename;
+}
+
+async function createWindow() {
+  const filename = getWorkerPath("./workers/window.ts");
+  const env = {
+    WEBVIEW_PATH: import.meta.env.WEBVIEW_PATH!,
+  };
+
+  const worker = await new Promise<Worker>((resolve, reject) => {
+    const worker = new Worker(filename, { env });
+    worker.addEventListener(
+      "open",
+      (e) => {
+        console.log("worker open", e);
+        resolve(worker);
       },
+      { once: true },
     );
-    worker.addEventListener("close", () => this.quit());
-    this.worker = worker;
-    this.webview = new Webview(true);
-  }
+    worker.addEventListener(
+      "error",
+      (e) => {
+        console.log("worker error", e.message);
+        reject(e.message);
+      },
+      { once: true },
+    );
+  });
 
-  protected async onCreateWindow(webview: Webview) {
-    const cfg = this.config;
-    webview.title = cfg.name;
-    webview.navigate(cfg.url);
-    webview.bind("postMessageBun", (...args: any[]) => {
-      console.log("Received postMessageBun", ...args);
-      return "from main-process";
-    });
-    webview.run();
-    await this.quit();
-  }
+  const { invoke, handle } = createIpc(worker);
 
-  async launch() {
-    await this.onInitialize();
-    await this.onCreateWindow(this.webview);
-  }
+  await invoke("createWindow", { url: "https://www.google.com" });
 
-  async quit() {
-    console.log("app quit ...");
-    await new Promise((resolve) => setTimeout(resolve, 1_000));
-    this.webview.destroy();
-    this.worker.terminate();
-  }
+  worker.terminate();
 }
-
-const app = new App({
-  name: "Bun",
-  url: `http://localhost:${PORT}`,
-  // url: `https://bun.sh/`,
-});
-app.launch();
