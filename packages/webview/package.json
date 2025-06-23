@@ -2,11 +2,15 @@
   "name": "webview",
   "type": "module",
   "scripts": {
-    "build": "bun run ./scripts/build.ts",
-    "dev": "bun run ./main/run.ts"
+    "build:app": "bun run ./scripts/build.ts --compile",
+    "build:raw": "bun run ./scripts/build.ts",
+    "dev": "bun run ./src/main.ts"
+  },
+  "dependencies": {
+    "webview-bun": "^2.4.0"
   },
   "devDependencies": {
     "@tools/utils": "workspace:*",
-    "webview-bun": "^2.4.0"
+    "chalk": "^5.4.1"
   }
 }

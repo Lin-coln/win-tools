@@ -1,4 +1,4 @@
 {
   "extends": "@tools/utils/tsconfig.bun.json",
-  "exclude": ["view"]
+  "exclude": ["pages"]
 }
