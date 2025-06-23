@@ -62,7 +62,7 @@ export abstract class MessageAPI {
     this.listenerMap.clear();
   }
 
-  constructor() {
+  protected constructor() {
     this.returnMap = new Map();
     this.invokeMap = new Map();
     this.listenerMap = new Map();
@@ -111,7 +111,7 @@ export abstract class MessageAPI {
       this.postMessage({ $type: "emit", $id, $data: { type, args } });
     });
   }
-  public on(type: string, listener: Handler) {
+  public on(type: string, listener: Handler): this {
     let handler = this.listenerMap.get(type);
     if (!handler) {
       handler = { type, listeners: new Set() };
@@ -126,11 +126,11 @@ export abstract class MessageAPI {
     }
     return this;
   }
-  public off();
-  public off(type: string);
-  public off(listener: Handler);
-  public off(type: string, listener: Handler);
-  public off(typeOrListener?: string | Handler, listener?: Handler) {
+  public off(): this;
+  public off(type: string): this;
+  public off(listener: Handler): this;
+  public off(type: string, listener: Handler): this;
+  public off(typeOrListener?: string | Handler, listener?: Handler): this {
     let type: string | void;
     if (typeof typeOrListener === "string") {
       type = typeOrListener;

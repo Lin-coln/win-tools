@@ -93,15 +93,13 @@ async function create<Invoker>(
   Object.entries(handlers).forEach((x) => api.handle(...x));
   const invoker = new Proxy(api, {
     get: (tar, prop: string, receiver) => {
+      if (prop === "then") return void 0; // promise issue
+
       if (internalProps.includes(prop)) {
         return Reflect.get(tar, prop, receiver);
       }
 
-      if (api.returnMap.has(prop)) {
-        return (...args: any[]) => api.invoke(prop, ...args);
-      }
-
-      return void 0;
+      return (...args: any[]) => api.invoke(prop, ...args);
     },
   });
 

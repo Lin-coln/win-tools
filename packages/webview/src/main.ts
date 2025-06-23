@@ -1,6 +1,6 @@
 import { getWorkerUrl } from "./utils/constants.ts";
-import type { handlers as windowHandler } from "./workers/window.ts";
 import { createWorkerAPI } from "./utils/worker/createWorkerAPI.ts";
+import type { handlers as windowHandler } from "./workers/window.ts";
 
 await main();
 async function main() {
