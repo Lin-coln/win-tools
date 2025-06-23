@@ -1,34 +1,29 @@
 import { getWorkerUrl } from "./utils/constants.ts";
 import { createWorkerAPI } from "./utils/worker/createWorkerAPI.ts";
 import type { handlers as windowHandler } from "./workers/window.ts";
+import type { handlers as serverHandler } from "./workers/server.ts";
 
 await main();
 async function main() {
   try {
     await initialize();
-    await createServer();
-    await createWindow();
 
-    await new Promise<void>((resolve) => {
-      let x: number = 3;
-      const timeout = setInterval(() => {
-        if (x === 0) {
-          clearInterval(timeout);
-          resolve();
-          return;
-        }
-        console.log(`quiting... (${x})`);
-        x--;
-      }, 1000);
-    });
+    const server = await createWorkerAPI<typeof serverHandler>(
+      getWorkerUrl("./workers/server.ts"),
+    );
+    const window = await createWorkerAPI<typeof windowHandler>(
+      getWorkerUrl("./workers/window.ts"),
+    );
+
+    const url = await server.createServer();
+    await window.createWindow({ url });
+    window.worker.terminate();
+
+    await count(3, (x) => console.log(`quiting... (${x})`));
     process.exit(0);
   } catch (e) {
     console.error(e);
     await wait(180_000);
-  }
-
-  async function wait(duration: number) {
-    await new Promise((resolve) => setTimeout(resolve, duration));
   }
 }
 
@@ -36,17 +31,21 @@ async function initialize() {
   console.log("embeddedFiles", Bun.embeddedFiles);
 }
 
-async function createServer() {
-  const url = getWorkerUrl("./workers/server.ts");
-  const api = await createWorkerAPI(url);
+async function wait(duration: number) {
+  await new Promise((resolve) => setTimeout(resolve, duration));
 }
 
-async function createWindow() {
-  const url = getWorkerUrl("./workers/window.ts");
-  const api = await createWorkerAPI<typeof windowHandler>(url);
-  await api.createWindow({
-    // url: "https://bun.sh/"
-    url: "http://localhost:3001",
+async function count(duration: number, callback: (time: number) => void) {
+  await new Promise<void>((resolve) => {
+    let x: number = duration;
+    const timeout = setInterval(() => {
+      if (x === 0) {
+        clearInterval(timeout);
+        resolve();
+        return;
+      }
+      callback(x);
+      x--;
+    }, 1000);
   });
-  api.worker.terminate();
 }

@@ -1,5 +1,6 @@
 import c from "chalk";
 import { isMainThread } from "worker_threads";
+import util from "node:util";
 
 const noop = () => void 0;
 const isWorker = !isMainThread;
@@ -36,7 +37,7 @@ export abstract class MessageAPI {
   listenerMap: Map<string, EmitHandler>;
 
   protected uuid() {
-    return `${Math.random().toString(36).slice(2).padStart(4, "0")}`;
+    return `${Math.random().toString(36).slice(2).padStart(11, "0")}`;
   }
 
   protected abstract postMessage(message: MessageData): void;
@@ -181,7 +182,11 @@ async function handleInvoke(this: MessageAPI, id: string, data: InvokeData) {
   const invokeMap = this.invokeMap;
   const { name, args } = data;
 
-  logger.log(c.grey(`msg:${id}`), `invoke - ${name}`, ...args);
+  logger.log(
+    c.grey(`msg:${id}`),
+    `invoke - ${name}`,
+    ...args.map((x) => util.inspect(x, { depth: null })),
+  );
 
   const handler = invokeMap.get(name);
   if (!handler) {

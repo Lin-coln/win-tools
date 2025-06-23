@@ -3,6 +3,7 @@ import { createWorkerAPI } from "../utils/worker/createWorkerAPI.ts";
 
 const webview = new Webview(true);
 export const handlers = { createWindow } as const;
+const api = await createWorkerAPI({ handlers });
 
 async function createWindow(opts: { url: string }) {
   const { url } = opts;
@@ -15,5 +16,3 @@ async function createWindow(opts: { url: string }) {
   webview.navigate(url);
   webview.run();
 }
-
-const api = await createWorkerAPI({ handlers });

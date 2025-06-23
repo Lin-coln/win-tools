@@ -33,14 +33,23 @@ declare const self: Worker;
 
 export { create as createWorkerAPI };
 
-type API<T> = Promise<WorkerMessageAPI & T>;
+type API<T extends Handlers> = Promise<
+  WorkerMessageAPI & {
+    [key in keyof T]: (
+      ...args: Parameters<T[key]>
+    ) => Promise<Awaited<ReturnType<T[key]>>>;
+  }
+>;
 type APIOptions = {
   create?: { url: string | URL; options?: Bun.WorkerOptions };
   handlers?: Handlers;
 };
-async function create<Invoker>(url?: string, handlers?: Handlers): API<Invoker>;
-async function create<Invoker>(opts: APIOptions): API<Invoker>;
-async function create<Invoker>(
+async function create<Invoker extends Handlers>(
+  url?: string,
+  handlers?: Handlers,
+): API<Invoker>;
+async function create<Invoker extends Handlers>(opts: APIOptions): API<Invoker>;
+async function create<Invoker extends Handlers>(
   a?: string | APIOptions,
   b?: Handlers,
 ): API<Invoker> {
