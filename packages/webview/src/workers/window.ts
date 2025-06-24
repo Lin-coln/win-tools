@@ -16,7 +16,5 @@ async function createWindow(opts: { url: string }) {
   webview.init(`window.bun = true`);
 
   webview.navigate(url);
-  // webview.navigate("http://localhost:3001");
-  // webview.navigate("https://bun.sh/");
   webview.run();
 }

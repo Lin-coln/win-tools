@@ -9,9 +9,6 @@ await fs.promises.rm(dist, { recursive: true, force: true });
 // build - main
 const compiled = process.argv.includes("--compile");
 const platform = process.platform;
-const ext = platform === "darwin" ? "" : ".exe";
-const filename = `${dist}/main${ext}`;
-const iconFilename = "./resources/icon.ico";
 
 const config: BuildConfig = {
   outdir: dist,
@@ -39,7 +36,13 @@ const config: BuildConfig = {
     asset: "resources/[name].[ext]",
   },
 };
-if (compiled) {
+if (!compiled) {
+  await Bun.build(config);
+} else {
+  const ext = platform === "darwin" ? "" : ".exe";
+  const filename = `${dist}/main${ext}`;
+  const iconFilename = "./resources/icon.ico";
+
   /**
    * bun build --compile --target=bun-windows-x64 ./path/to/my/app.ts --outfile myapp
    */
@@ -58,8 +61,8 @@ if (compiled) {
       `--asset-naming=${(config.naming as any).asset}`,
       ...(platform === "win32"
         ? [
-            // // not working
-            // `--windows-hide-console`,
+            // not working
+            `--windows-hide-console`,
             `--windows-icon=${iconFilename}`,
           ]
         : []),
@@ -67,6 +70,4 @@ if (compiled) {
     ],
     { stdout: "inherit" },
   );
-} else {
-  await Bun.build(config);
 }
