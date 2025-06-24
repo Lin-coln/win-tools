@@ -1,5 +1,5 @@
 import { getWorkerUrl } from "./utils/constants.ts";
-import { createWorkerAPI } from "./utils/worker/createWorkerAPI.ts";
+import { createWorkerAPI } from "./utils/worker/api.ts";
 import type { handlers as windowHandler } from "./workers/window.ts";
 import type { handlers as serverHandler } from "./workers/server.ts";
 
@@ -9,10 +9,10 @@ async function main() {
     await initialize();
 
     const server = await createWorkerAPI<typeof serverHandler>(
-      getWorkerUrl("./workers/server.ts"),
+      getWorkerUrl("./server.ts"),
     );
     const window = await createWorkerAPI<typeof windowHandler>(
-      getWorkerUrl("./workers/window.ts"),
+      getWorkerUrl("./window.ts"),
     );
 
     const url = await server.createServer();

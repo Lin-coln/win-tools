@@ -1,11 +1,12 @@
 import path from "node:path";
 
+const BUN_ROOT: string =
+  process.platform === "win32" ? "B:/~BUN/root/" : "B:/~BUN/root/";
+
 export const isPackaged = Boolean(Bun.embeddedFiles.length);
 
 export function getPackagedPath(...paths: string[]): string {
   if (!isPackaged) throw new Error("Unable to find packaged path");
-  const BUN_ROOT =
-    process.platform === "win32" ? "B:/~BUN/root/" : "B:/~BUN/root/";
   return path.join(BUN_ROOT, ...paths);
 }
 
@@ -16,6 +17,6 @@ export function getPackagedPath(...paths: string[]): string {
 
 export function getWorkerUrl(...paths: string[]): string {
   const prefix = ".";
-  const base = isPackaged ? "/" : "/src";
+  const base = isPackaged ? "/workers" : "/src/workers";
   return prefix + path.join(base, ...paths).replace(/\\/g, "/");
 }

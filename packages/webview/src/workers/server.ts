@@ -1,9 +1,10 @@
-import { createWorkerAPI } from "../utils/worker/createWorkerAPI";
+import { createWorkerAPI } from "../utils/worker/api.ts";
 import Index from "../pages/index.html";
 
+declare const self: Worker;
 let server: Bun.Server;
 export const handlers = { createServer } as const;
-const api = await createWorkerAPI({ handlers });
+const api = await createWorkerAPI(self, { handlers });
 
 async function createServer() {
   const port = 3001;
