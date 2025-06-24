@@ -4,7 +4,8 @@
   "scripts": {
     "build:app": "bun run ./scripts/build.ts --compile",
     "build:raw": "bun run ./scripts/build.ts",
-    "dev": "bun run ./src/main.ts"
+    "dev": "bun run ./src/main.ts",
+    "dev:web": "bun run ./src/server/index.ts"
   },
   "dependencies": {
     "webview-bun": "^2.4.0"

@@ -5,6 +5,8 @@ const BUN_ROOT: string =
 
 export const isPackaged = Boolean(Bun.embeddedFiles.length);
 
+export const appName: string = "Application";
+
 export function getPackagedPath(...paths: string[]): string {
   if (!isPackaged) throw new Error("Unable to find packaged path");
   return path.join(BUN_ROOT, ...paths);
