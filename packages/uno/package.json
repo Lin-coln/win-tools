@@ -1,0 +1,26 @@
+{
+  "name": "uno",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@enable3d/phaser-extension": "^0.26.1",
+    "phaser": "^3.55.2",
+    "three": "0.171.0"
+  },
+  "devDependencies": {
+    "@tools/utils": "workspace:*",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "vite": "^7.0.0",
+    "@types/three": "0.171.0"
+  }
+}

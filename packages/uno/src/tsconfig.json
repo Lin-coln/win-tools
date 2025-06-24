@@ -1,0 +1,3 @@
+{
+  "extends": "@tools/utils/tsconfig.browser.json"
+}
