@@ -2,6 +2,7 @@ import { createWorkerAPI } from "../utils/worker/api.ts";
 import Index from "../pages/index.html";
 
 declare const self: Worker;
+
 let server: Bun.Server;
 export const handlers = { createServer } as const;
 const api = await createWorkerAPI(self, { handlers });
