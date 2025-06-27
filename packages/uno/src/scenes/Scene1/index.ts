@@ -7,7 +7,7 @@ import { holdingCards } from "./holdingCards.ts";
 export class Scene1 extends Scene3D {
   constructor() {
     super({
-      key: "scene1_scene",
+      key: "Scene1",
     });
   }
 

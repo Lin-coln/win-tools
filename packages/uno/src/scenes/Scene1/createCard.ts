@@ -6,7 +6,7 @@ export function createCard(this: Scene3D) {
     {
       width: 440 * scale,
       height: 648 * scale,
-      depth: 20 * scale,
+      depth: 8 * scale,
     },
     {
       lambert: {
