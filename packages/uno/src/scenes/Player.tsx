@@ -74,9 +74,9 @@ function PlayerObject() {
     if (!cam) return;
 
     const tarPos = tar.translation();
-    const lookPos = new Vector3(tarPos.x, tarPos.y, tarPos.z);
+    const lookPos = new Vector3(tarPos.x, tarPos.y + 2, tarPos.z);
 
-    const camOfs = new Vector3(0, 12, 0);
+    const camOfs = new Vector3(0, 2, 4);
     const camPos = lookPos.clone().add(camOfs);
 
     cam.position.lerp(camPos, 0.1);
@@ -85,13 +85,7 @@ function PlayerObject() {
 
   return (
     <>
-      <PresetCamera
-        ref={cameraRef}
-        id="player_camera"
-        fov={60}
-        near={5}
-        far={14}
-      />
+      <PresetCamera ref={cameraRef} id="player_camera" fov={60} />
       <RigidBody
         ref={rigidRef}
         lockRotations
@@ -107,13 +101,13 @@ function PlayerObject() {
           castShadow
           receiveShadow
         >
-          <meshStandardMaterial color={cfg.color} />
           {/*<MeshTransmissionMaterial*/}
           {/*  ior={1.2}*/}
           {/*  thickness={1.5}*/}
           {/*  anisotropy={0.1}*/}
           {/*  chromaticAberration={0.04}*/}
           {/*/>*/}
+          <meshStandardMaterial color={cfg.color} />
         </RoundedBox>
       </RigidBody>
     </>

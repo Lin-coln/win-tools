@@ -5,10 +5,12 @@ import { Player } from "./scenes/Player.tsx";
 import { Preset } from "./presets/Preset.tsx";
 import React, { useRef } from "react";
 import {
-  Scene,
-  type OrthographicCamera as OrthographicCameraImpl,
-} from "three";
-import { OrthographicCamera, Plane, useFBO } from "@react-three/drei";
+  Environment,
+  Hud,
+  OrthographicCamera,
+  Plane,
+  useFBO,
+} from "@react-three/drei";
 import { usePresetContext } from "./presets/PresetContext.tsx";
 
 createRoot(document.getElementById("root")!).render(<App />);
@@ -25,48 +27,35 @@ function App() {
 }
 
 function PresetGUI() {
-  const camRef = useRef<OrthographicCameraImpl>(null!);
-  const sceneRef = useRef<Scene>(null!);
-  if (!sceneRef.current) sceneRef.current = new Scene();
-
-  const ctx = usePresetContext();
-  useThree();
-
   const playerTar = useFBO(window.innerWidth / 4, window.innerHeight / 4);
+  const ctx = usePresetContext();
 
+  let prevClear: boolean;
   useFrame((state) => {
-    const { gl, scene: mainScene, camera: mainCam } = state;
-    const uiScene = sceneRef.current;
-    const uiCam = camRef.current;
-
-    gl.autoClear = false;
-
+    const { gl, scene: mainScene } = state;
+    prevClear = gl.autoClear;
     const playerCam = ctx.getCamera("player_camera");
     if (playerCam) {
+      gl.autoClear = true;
       gl.setRenderTarget(playerTar);
       gl.render(mainScene, playerCam);
+      gl.setRenderTarget(null);
     }
+    gl.autoClear = prevClear;
+  }, 2);
 
-    gl.setRenderTarget(null);
-    gl.render(mainScene, mainCam);
-    gl.render(uiScene, uiCam);
-    gl.autoClear = true;
-  }, 1);
-
-  const r = window.innerWidth / window.innerHeight;
-  const SIZE = 400;
-  return createPortal(
-    <>
-      <OrthographicCamera ref={camRef} near={0.0001} far={100} />
-      <group
-        position-z={-0.1}
-        position-x={-window.innerWidth / 2 + (SIZE * r) / 2}
-      >
-        <Plane args={[SIZE, SIZE / r, 1]} position-y={0}>
+  const [vw, vh] = [window.innerWidth, window.innerHeight];
+  const aspectRatio = vw / vh;
+  const w = 400;
+  const h = w / aspectRatio;
+  return (
+    <Hud renderPriority={1}>
+      <OrthographicCamera makeDefault zoom={1} />
+      <group position={[0, 0, -0.1]}>
+        <Plane args={[w, h]} position={[-vw / 2 + w / 2, vh / 2 - h / 2, 0]}>
           <meshBasicMaterial map={playerTar.texture} />
         </Plane>
       </group>
-    </>,
-    sceneRef.current,
+    </Hud>
   );
 }
