@@ -1,11 +1,5 @@
 import { CuboidCollider } from "@react-three/rapier";
-import { Box, ContactShadows, Grid } from "@react-three/drei";
-
-import { MeshStandardMaterial } from "three";
-
-const groundMaterial = new MeshStandardMaterial({
-  color: "#d1d1d1",
-});
+import { Box, Grid } from "@react-three/drei";
 
 export function Ground() {
   const { width, depth, height } = { width: 20, depth: 1, height: 20 };
@@ -26,18 +20,16 @@ export function Ground() {
       position={[0, -0.5, 0]}
       args={[width / 2, depth / 2, height / 2]}
     >
-      <Box
-        position={[0, -0.01, 0]}
-        args={[width, depth, height]}
-        material={groundMaterial}
+      <Box position={[0, -0.01, 0]} args={[width, depth, height]} receiveShadow>
+        {/*<meshStandardMaterial color="#d1d1d1" />*/}
+        <meshLambertMaterial color="#d1d1d1" />
+      </Box>
+      <Grid
+        position={[0, 0.5, 0]}
+        args={[width, height]}
+        {...gridConfig}
         receiveShadow
       />
-      {/*<Grid*/}
-      {/*  position={[0, 0.5, 0]}*/}
-      {/*  args={[width, height]}*/}
-      {/*  {...gridConfig}*/}
-      {/*  receiveShadow*/}
-      {/*/>*/}
     </CuboidCollider>
   );
 }

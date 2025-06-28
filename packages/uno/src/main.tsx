@@ -1,47 +1,57 @@
 import "./index.css";
 import { createRoot } from "react-dom/client";
-import { Canvas, type Vector3 } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   Environment,
   OrbitControls,
-  Plane,
-  Box,
-  Torus,
-  ContactShadows,
   RoundedBox,
-  Stage,
+  PerspectiveCamera,
+  GizmoHelper,
+  GizmoViewport,
   Outlines,
 } from "@react-three/drei";
 import { folder, useControls } from "leva";
-import { CuboidCollider, Physics, RigidBody } from "@react-three/rapier";
+import { Physics, RigidBody } from "@react-three/rapier";
 import { Ground } from "./prefabs/Ground.tsx";
-import { Shadows } from "./prefabs/Shadow.tsx";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
 function App() {
   const cfg = useControls({
     helpers: folder({
-      floor: true,
-      axes: false,
-      physics_debug: false,
+      ground: true,
+      physics_debug: true,
+      ambient_intensity: { value: 1.2, step: 0.1, min: 0, max: 2 },
+      direct_intensity: { value: 1, step: 0.1, min: 0, max: 5 },
+      env_intensity: { value: 0.2, step: 0.05, min: 0, max: 5 },
     }),
   });
 
   return (
-    <Canvas
-      style={{ height: "100vh" }}
-      shadows
-      camera={{ position: [0, 4, 5], fov: 60 }}
-    >
-      {cfg.axes && <axesHelper args={[1000]} />}
-      <Environment preset="city" background blur={1} />
-      <OrbitControls />
+    <Canvas shadows style={{ height: "100vh" }}>
+      <GizmoHelper alignment="bottom-right" margin={[100, 100]}>
+        <GizmoViewport labelColor="white" axisHeadScale={1} />
+      </GizmoHelper>
+      <PerspectiveCamera makeDefault position={[3, 4, 5]} fov={60} />
+      <OrbitControls makeDefault />
+
+      <Environment
+        preset="warehouse"
+        blur={0}
+        background
+        environmentIntensity={cfg.env_intensity}
+      />
+      <ambientLight intensity={cfg.ambient_intensity} />
+      <directionalLight
+        castShadow
+        shadow-mapSize={1024}
+        position={[2.5, 8, 5]}
+        intensity={cfg.direct_intensity}
+      />
 
       <Physics debug={cfg.physics_debug}>
         <Cube />
-        <Shadows />
-        {cfg.floor && <Ground />}
+        {cfg.ground && <Ground />}
       </Physics>
     </Canvas>
   );
@@ -52,19 +62,15 @@ function Cube() {
     transform: folder({
       position: { value: [0, 2, 0], step: 0.5 },
       rotation: { value: [0, 0, 0], step: 1 },
-      scale: { value: [1, 1, 1], step: 0.1 },
+      scale: { value: 1, step: 0.1 },
     }),
-    box: folder({
-      width: 1,
-      height: 1,
-      depth: 1,
-    }),
+    box: folder({ width: 1, height: 2, depth: 1 }),
     material: folder({
-      color: "red",
-      roughness: 0.1,
-      metalness: 0.2,
+      // color: "#03CEA4",
+      color: "#FB4D3D",
     }),
   });
+
   return (
     <RigidBody
       position={cfg.position}
@@ -78,15 +84,12 @@ function Cube() {
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial
-          color={cfg.color}
-          roughness={cfg.roughness}
-          metalness={cfg.metalness}
-        />
+        <meshStandardMaterial color={cfg.color} />
+
         <Outlines
-          thickness={10}
-          color="orange"
           opacity={0.8}
+          thickness={10}
+          color="#EAC435"
           transparent={true}
         />
       </RoundedBox>
