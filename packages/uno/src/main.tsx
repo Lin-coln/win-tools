@@ -1,98 +1,72 @@
 import "./index.css";
 import { createRoot } from "react-dom/client";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, createPortal, useFrame, useThree } from "@react-three/fiber";
+import { Player } from "./scenes/Player.tsx";
+import { Preset } from "./presets/Preset.tsx";
+import React, { useRef } from "react";
 import {
-  Environment,
-  OrbitControls,
-  RoundedBox,
-  PerspectiveCamera,
-  GizmoHelper,
-  GizmoViewport,
-  Outlines,
-} from "@react-three/drei";
-import { folder, useControls } from "leva";
-import { Physics, RigidBody } from "@react-three/rapier";
-import { Ground } from "./prefabs/Ground.tsx";
+  Scene,
+  type OrthographicCamera as OrthographicCameraImpl,
+} from "three";
+import { OrthographicCamera, Plane, useFBO } from "@react-three/drei";
+import { usePresetContext } from "./presets/PresetContext.tsx";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
 function App() {
-  const cfg = useControls({
-    helpers: folder({
-      ground: true,
-      physics_debug: true,
-      ambient_intensity: { value: 1.2, step: 0.1, min: 0, max: 2 },
-      direct_intensity: { value: 1, step: 0.1, min: 0, max: 5 },
-      env_intensity: { value: 0.2, step: 0.05, min: 0, max: 5 },
-    }),
-  });
-
   return (
-    <Canvas shadows style={{ height: "100vh" }}>
-      <GizmoHelper alignment="bottom-right" margin={[100, 100]}>
-        <GizmoViewport labelColor="white" axisHeadScale={1} />
-      </GizmoHelper>
-      <PerspectiveCamera makeDefault position={[3, 4, 5]} fov={60} />
-      <OrbitControls makeDefault />
-
-      <Environment
-        preset="warehouse"
-        blur={0}
-        background
-        environmentIntensity={cfg.env_intensity}
-      />
-      <ambientLight intensity={cfg.ambient_intensity} />
-      <directionalLight
-        castShadow
-        shadow-mapSize={1024}
-        position={[2.5, 8, 5]}
-        intensity={cfg.direct_intensity}
-      />
-
-      <Physics debug={cfg.physics_debug}>
-        <Cube />
-        {cfg.ground && <Ground />}
-      </Physics>
+    <Canvas shadows style={{ height: "100dvh" }}>
+      <Preset>
+        <Player />
+        <PresetGUI />
+      </Preset>
     </Canvas>
   );
 }
 
-function Cube() {
-  const cfg = useControls({
-    transform: folder({
-      position: { value: [0, 2, 0], step: 0.5 },
-      rotation: { value: [0, 0, 0], step: 1 },
-      scale: { value: 1, step: 0.1 },
-    }),
-    box: folder({ width: 1, height: 2, depth: 1 }),
-    material: folder({
-      // color: "#03CEA4",
-      color: "#FB4D3D",
-    }),
-  });
+function PresetGUI() {
+  const camRef = useRef<OrthographicCameraImpl>(null!);
+  const sceneRef = useRef<Scene>(null!);
+  if (!sceneRef.current) sceneRef.current = new Scene();
 
-  return (
-    <RigidBody
-      position={cfg.position}
-      rotation={cfg.rotation.map((x) => (x * Math.PI) / 180) as any}
-      scale={cfg.scale}
-      colliders="hull"
-    >
-      <RoundedBox
-        args={[cfg.width, cfg.height, cfg.depth]}
-        radius={0.1}
-        castShadow
-        receiveShadow
+  const ctx = usePresetContext();
+  useThree();
+
+  const playerTar = useFBO(window.innerWidth / 4, window.innerHeight / 4);
+
+  useFrame((state) => {
+    const { gl, scene: mainScene, camera: mainCam } = state;
+    const uiScene = sceneRef.current;
+    const uiCam = camRef.current;
+
+    gl.autoClear = false;
+
+    const playerCam = ctx.getCamera("player_camera");
+    if (playerCam) {
+      gl.setRenderTarget(playerTar);
+      gl.render(mainScene, playerCam);
+    }
+
+    gl.setRenderTarget(null);
+    gl.render(mainScene, mainCam);
+    gl.render(uiScene, uiCam);
+    gl.autoClear = true;
+  }, 1);
+
+  const r = window.innerWidth / window.innerHeight;
+  const SIZE = 400;
+  return createPortal(
+    <>
+      <OrthographicCamera ref={camRef} near={0.0001} far={100} />
+      <group
+        position-z={-0.1}
+        position-x={-window.innerWidth / 2 + (SIZE * r) / 2}
       >
-        <meshStandardMaterial color={cfg.color} />
-
-        <Outlines
-          opacity={0.8}
-          thickness={10}
-          color="#EAC435"
-          transparent={true}
-        />
-      </RoundedBox>
-    </RigidBody>
+        <Plane args={[SIZE, SIZE / r, 1]} position-y={0}>
+          <meshBasicMaterial map={playerTar.texture} />
+        </Plane>
+      </group>
+    </>,
+    sceneRef.current,
   );
 }
