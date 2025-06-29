@@ -27,7 +27,11 @@ function App() {
 }
 
 function PresetGUI() {
-  const playerTar = useFBO(window.innerWidth / 4, window.innerHeight / 4);
+  const { size } = useThree();
+  const [vw, vh] = [size.width, size.height];
+  const w = 400;
+  const h = w / (vw / vh);
+  const playerTar = useFBO(vw, vh);
   const ctx = usePresetContext();
 
   let prevClear: boolean;
@@ -44,12 +48,8 @@ function PresetGUI() {
     gl.autoClear = prevClear;
   }, 2);
 
-  const [vw, vh] = [window.innerWidth, window.innerHeight];
-  const aspectRatio = vw / vh;
-  const w = 400;
-  const h = w / aspectRatio;
   return (
-    <Hud renderPriority={1}>
+    <Hud renderPriority={2}>
       <OrthographicCamera makeDefault zoom={1} />
       <group position={[0, 0, -0.1]}>
         <Plane args={[w, h]} position={[-vw / 2 + w / 2, vh / 2 - h / 2, 0]}>
