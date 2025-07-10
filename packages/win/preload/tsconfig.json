@@ -1,6 +1,3 @@
 {
-  "references": [
-    { "path": "./tsconfig.bun.json" },
-    { "path": "./tsconfig.preload.json" }
-  ]
+  "extends": "@tools/utils/tsconfig.browser.json"
 }

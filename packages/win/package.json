@@ -3,11 +3,10 @@
   "type": "module",
   "main": "./main/index.ts",
   "scripts": {
-    "build:preload": "cd preload && bun ./scripts/buildPreload.ts",
+    "build:preload": "bun ./scripts/buildPreload.ts",
     "build:renderer": "cd renderer && bunx --bun vite build --emptyOutDir",
-    "dev:main": "set NODE_OPTIONS=\"--experimental-strip-types\" && bunx --bun electron . --INDEX_URL=\\\"http://localhost:8080\\\"",
-    "dev:renderer": "cd renderer && bunx --bun vite dev --port=8080",
-    "preview": "set NODE_OPTIONS=\"--experimental-strip-types\" && bunx --bun electron ."
+    "dev:main": "bun run build:preload && bun ./scripts/devMain.ts . --INDEX_URL=\\\"http://localhost:8080\\\"",
+    "dev:renderer": "cd renderer && bunx --bun vite dev --port=8080"
   },
   "dependencies": {
     "clsx": "^2.1.1",

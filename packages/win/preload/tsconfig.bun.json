@@ -1,4 +1,0 @@
-{
-  "extends": "@tools/utils/tsconfig.bun.json",
-  "include": ["scripts"]
-}
