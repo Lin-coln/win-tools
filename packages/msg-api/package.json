@@ -1,0 +1,7 @@
+{
+  "name": "msg-api",
+  "type": "module",
+  "devDependencies": {
+    "@tools/utils": "workspace:*"
+  }
+}
