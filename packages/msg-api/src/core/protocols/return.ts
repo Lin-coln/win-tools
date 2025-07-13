@@ -1,4 +1,4 @@
-import type { Protocol } from "../types";
+import type { Protocol } from "./types";
 
 type ReturnHandler = {
   id: string;
@@ -32,8 +32,8 @@ export function createReturnProtocol(
   };
 
   async function handleMessage(event: Protocol.MessageEvent<ReturnData>) {
-    const { sender, id, data } = event;
-    console.log(id, `[${sender}]`, `return -`, data.error ?? data.data);
+    const { origin, dest, id, data } = event;
+    console.log(id, `[${origin}]`, `return -`, data.error ?? data.data);
 
     const handler = map.get(id);
     if (!handler) {
@@ -69,26 +69,26 @@ export function createReturnProtocol(
     return ref.promise;
   }
 
-  async function postReturn(receiver: string, id: string, callback: () => any) {
+  async function postReturn(dest: string, id: string, callback: () => any) {
     let raw: Protocol.RawData;
     try {
       const data = await callback();
       raw = {
-        $sender: ctx.identifier,
-        $receiver: receiver,
+        $origin: ctx.identifier,
+        $dest: dest,
         $id: id,
         $type: "return",
         $data: { error: null, data },
       };
     } catch (error) {
       raw = {
-        $sender: ctx.identifier,
-        $receiver: receiver,
+        $origin: ctx.identifier,
+        $dest: dest,
         $id: id,
         $type: "return",
         $data: { error, data: null },
       };
     }
-    await ctx.postMessage(raw);
+    await ctx.send(raw);
   }
 }

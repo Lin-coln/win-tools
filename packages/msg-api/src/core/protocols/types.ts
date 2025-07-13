@@ -1,6 +1,4 @@
-import type { ReturnAPI } from "../protocols/return.ts";
-
-export type Binary = Uint8Array;
+import type { ReturnAPI } from "./return.ts";
 
 export interface Protocol<
   Name extends string = string,
@@ -15,15 +13,15 @@ export interface Protocol<
 
 export namespace Protocol {
   export type MessageEvent<Data> = {
-    sender: string;
-    receiver: string;
+    origin: string;
+    dest: string;
     id: string;
     data: Data;
   };
 
   export type RawData = {
-    $sender: string;
-    $receiver: string;
+    $origin: string;
+    $dest: string;
     $id: string;
     $type: string;
     $data: any;
@@ -32,7 +30,7 @@ export namespace Protocol {
   export interface Context {
     identifier: string;
     uuid(): string;
-    postMessage(data: RawData): Promise<void>;
+    send(data: RawData): Promise<void>;
     return: ReturnAPI["postReturn"];
     await: ReturnAPI["promiseReturn"];
   }

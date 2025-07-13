@@ -1,10 +1,11 @@
-import type { Protocol } from "../types";
+import type { Protocol } from "./types";
 
 type Listener = (type: string, ...args: any[]) => any;
 type EmitHandler = { type: string; listeners: Set<{ listener: Listener }> };
 type EmitData = { type: string; args: any[] };
 type EmitAPI = {
-  emit(receiver: string, type: string, ...args: any[]): Promise<void>;
+  emit(type: string, ...args: any[]): Promise<void>;
+  emit(opts: { type: string }, ...args: any[]): Promise<void>;
   on(type: string, listener: Listener): void;
   off(listener?: Listener): void;
   off(type?: string, listener?: Listener): void;
@@ -25,9 +26,9 @@ export function createEmitProtocol(
   };
 
   async function handleMessage(event: Protocol.MessageEvent<EmitData>) {
-    const { sender, id, data } = event;
-    console.log(id, `[${sender}]`, `emit:${data.type}`, ...data.args);
-    await ctx.return(sender, id, () => void 0);
+    const { origin, id, data } = event;
+    console.log(id, `[${origin}]`, `emit:${data.type}`, ...data.args);
+    await ctx.return(origin, id, () => void 0);
 
     const handler = map.get(data.type);
     if (!handler) return;
@@ -36,12 +37,12 @@ export function createEmitProtocol(
     set.forEach((x) => x.listener(type, ...args));
   }
 
-  async function emit(receiver: string, type: string, ...args: any[]) {
+  async function emit(type: string, ...args: any[]) {
     const id = ctx.uuid();
     return await ctx.await(id, () =>
-      ctx.postMessage({
-        $sender: ctx.identifier,
-        $receiver: receiver,
+      ctx.send({
+        $origin: ctx.identifier,
+        $dest: receiver,
         $id: id,
         $type: "emit",
         $data: { type, args },
